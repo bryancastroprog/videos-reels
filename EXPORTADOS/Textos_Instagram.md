@@ -12,9 +12,10 @@ Casi siempre es por dos cosas que no se pensaron desde el inicio:
 01 · CONCEPTO: sin un concepto sólido no conectas con ningún segmento de mercado.
 02 · EFICIENCIA: cuanta más área rentable tengas frente a la circulación, mejores números de rentabilidad.
 
-En Building Great Studio hacemos diseño estratégico para desarrolladores: arquitectura pensada para que el proyecto se venda y deje utilidad.
+En Build and Create Studio hacemos diseño estratégico para desarrolladores: arquitectura pensada para que el proyecto se venda y deje utilidad.
 
 📩 Escríbenos por DM y revisamos tu proyecto.
+🌐 www.bcarqstudio.com
 
 ## Hashtags
 #desarrolloinmobiliario #desarrolladoresinmobiliarios #arquitectura #inversioninmobiliaria #rentabilidad
