@@ -15,8 +15,8 @@ Espacios que transmiten calma. ✨
 #interiorismo #diseñointerior #arteinterior #interiordesign #arquitecturainterior
 
 ## Portada
-Archivo: Portada_Interiorismo.png (1080×1920). Detalle de las piezas iridiscentes con el título
-"El arte de habitar la luz". El texto cae dentro del recorte 3:4 del perfil.
+Archivos: Portada_Interiorismo.png (con el título "El arte de habitar la luz") o Portada_Interiorismo_sin_texto.png. Ambas muestran el detalle de las piezas iridiscentes.
+El video no lleva textos: la portada con título es opcional.
 
 ## Música sugerida (agregar desde la biblioteca de Instagram)
 Piano ambiental, lo-fi suave o neo-classical, entre 60 y 80 BPM.
