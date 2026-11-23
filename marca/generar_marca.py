@@ -114,7 +114,7 @@ def pieza_vertical(color, sub_color, fondo=None):
     g, iso_h = isotipo((W - iso_w) / 2, 250, iso_w, color)
     y_txt = 250 + iso_h + 110 + alto_mayusculas(SERIF, 130)
     d1, _ = texto_a_path("PÓRTICO", SERIF, 130, W / 2, y_txt, tracking=0.22, ancla="middle")
-    d2, _ = texto_a_path("FOTOGRAFÍA DE ARQUITECTURA", SANS, 26, W / 2, y_txt + 80,
+    d2, _ = texto_a_path("FOTOGRAFÍA ARQUITECTÓNICA", SANS, 26, W / 2, y_txt + 80,
                          tracking=0.42, ancla="middle")
     cuerpo = (f'{g}\n  <path d="{d1}" fill="{color}"/>\n'
               f'  <path d="{d2}" fill="{sub_color}"/>')
@@ -130,7 +130,7 @@ def pieza_horizontal(color, sub_color, fondo=None):
     cap = alto_mayusculas(SERIF, 120)
     y_txt = H / 2 + cap / 2 - 18
     d1, w1 = texto_a_path("PÓRTICO", SERIF, 120, x_txt, y_txt, tracking=0.2)
-    d2, w2 = texto_a_path("FOTOGRAFÍA DE ARQUITECTURA", SANS, 22, x_txt + 4, y_txt + 62,
+    d2, w2 = texto_a_path("FOTOGRAFÍA ARQUITECTÓNICA", SANS, 22, x_txt + 4, y_txt + 62,
                           tracking=0.4)
     W = x_txt + max(w1, w2) + m
     cuerpo = (f'{g}\n  <path d="{d1}" fill="{color}"/>\n'
@@ -159,10 +159,10 @@ def tablero_marca():
     cap = alto_mayusculas(SERIF, 110)
     yt = 230 + ih + 90 + cap
     d, _ = texto_a_path("PÓRTICO", SERIF, 110, W / 4, yt, 0.22, "middle"); p.append(f'<path d="{d}" fill="{CARBON}"/>')
-    d, _ = texto_a_path("FOTOGRAFÍA DE ARQUITECTURA", SANS, 22, W / 4, yt + 66, 0.42, "middle"); p.append(f'<path d="{d}" fill="{GRIS}"/>')
+    d, _ = texto_a_path("FOTOGRAFÍA ARQUITECTÓNICA", SANS, 22, W / 4, yt + 66, 0.42, "middle"); p.append(f'<path d="{d}" fill="{GRIS}"/>')
     g, _ = isotipo(3 * W / 4 - 110, 230, 220, HUESO); p.append(g)
     d, _ = texto_a_path("PÓRTICO", SERIF, 110, 3 * W / 4, yt, 0.22, "middle"); p.append(f'<path d="{d}" fill="{HUESO}"/>')
-    d, _ = texto_a_path("FOTOGRAFÍA DE ARQUITECTURA", SANS, 22, 3 * W / 4, yt + 66, 0.42, "middle"); p.append(f'<path d="{d}" fill="{TRAVERTINO}"/>')
+    d, _ = texto_a_path("FOTOGRAFÍA ARQUITECTÓNICA", SANS, 22, 3 * W / 4, yt + 66, 0.42, "middle"); p.append(f'<path d="{d}" fill="{TRAVERTINO}"/>')
 
     # paleta
     y0 = H * 0.62 + 110

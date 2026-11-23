@@ -1,4 +1,4 @@
-# PÓRTICO · Fotografía de arquitectura
+# PÓRTICO · Fotografía arquitectónica
 
 Repositorio de la marca y del **motor de edición** de Pórtico.
 
