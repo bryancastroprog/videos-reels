@@ -1,0 +1,79 @@
+# ============================================================
+#  PÓRTICO · proyecto de video
+#  1. Copia los clips a la carpeta clips/  (nombrados en orden:
+#     01_fachada.mp4, 02_acceso.mp4, 03_sala.mp4 ...)
+#  2. Ajusta este archivo (todo es opcional salvo lo marcado)
+#  3. python3 motor/portico.py armar proyectos/prueba
+# ============================================================
+
+proyecto: "Ejemplo Interiorismo"
+cliente: ""
+
+# Formatos a exportar: vertical (9:16), retrato (4:5), horizontal (16:9)
+formatos: [vertical, horizontal]
+
+# Duración total aproximada en segundos. Si las tomas no traen
+# 'duracion', el motor reparte este tiempo entre todas.
+duracion_objetivo: 27
+
+# Color: natural | calido | frio | luminoso | ninguno
+color: natural
+# Ajuste fino opcional (se suma al preset):
+# ajuste_color: {brillo: 0.0, contraste: 1.0, saturacion: 1.0}
+# lut: marca/luts/portico.cube
+
+# Estabilización: no | suave | fuerte
+estabilizar: suave
+# Quita el parpadeo de exposición automática del celular
+antiparpadeo: true
+
+# Transición entre tomas (segundos). 0 = corte seco
+transicion: 0.5
+
+# Cierre: negro (fundido a negro) | logo (logo Pórtico) | logo_cliente | ninguno
+cierre: logo
+# logo_cliente: logo_cliente.png   (dentro de la carpeta del proyecto)
+
+# Marca de agua discreta de Pórtico en una esquina
+marca_agua: true
+
+# Audio: sin audio por defecto (el cliente pone la música en Instagram)
+# musica: musica.mp3   (dentro de la carpeta del proyecto)
+
+# Portada: toma y segundo de donde sale la imagen
+portada:
+  toma: 1
+  segundo: 1.0
+  categoria: "INTERIORISMO"
+  titulo: "El arte de"
+  titulo_italica: "habitar la luz"
+
+# Textos para Instagram (se generan en un .md junto al video)
+instagram:
+  titulo: ""
+  descripcion: ""
+  hashtags: "#arquitectura #interiorismo #bienesraices #guatemala"
+
+# ------------------------------------------------------------
+# Tomas. Si borras esta lista, el motor usa todos los clips de
+# clips/ en orden alfabético con valores automáticos.
+#
+#  archivo:   nombre del clip dentro de clips/
+#  inicio:    segundo donde empieza (auto = centro del clip)
+#  duracion:  segundos que dura la toma
+#  encuadre:  0.0 = izquierda · 0.5 = centro · 1.0 = derecha
+#             (sólo aplica cuando hay que recortar el clip)
+#  encuadre_v: igual pero vertical (0 arriba, 1 abajo)
+#  zoom:      1.0 = normal, 1.15 = 15 % más cerca
+#  velocidad: 1.0 normal · 0.5 cámara lenta
+#  texto:     {titulo: "...", subtitulo: "..."} sobre la toma
+# ------------------------------------------------------------
+tomas:
+  - archivo: 01_toma.mp4
+  - archivo: 02_toma.mp4
+    texto: {titulo: "Luz y forma", subtitulo: "Interiorismo · Zona 14"}
+  - archivo: 03_toma.mp4
+  - archivo: 04_toma.mp4
+  - archivo: 05_toma.mp4
+  - archivo: 06_detalle.mp4
+    encuadre: 0.3

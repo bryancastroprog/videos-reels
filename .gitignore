@@ -1,0 +1,7 @@
+# Material pesado de cada proyecto: no se sube a GitHub
+proyectos/*/clips/
+proyectos/*/exportados/
+proyectos/*/borrador/
+proyectos/*/revision/
+__pycache__/
+.DS_Store
