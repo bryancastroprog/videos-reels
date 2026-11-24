@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Pórtico para corredores</title>
+<style>
+@font-face { font-family: "Archivo"; src: url("../fuentes/Archivo-Variable.ttf"); font-weight: 100 900; font-stretch: 62% 125%; }
+@font-face { font-family: "Plex Mono"; src: url("../fuentes/IBMPlexMono-Light.ttf"); font-weight: 300; }
+@font-face { font-family: "Plex Mono"; src: url("../fuentes/IBMPlexMono-Regular.ttf"); font-weight: 400; }
+:root { --carbon:#1C1B19; --hueso:#F2EEE7; --travertino:#B49A7A; --gris:#6E6A64; --gris2:#A9A39A; --linea:#D9D3C9; }
+@page { margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Archivo", sans-serif; color: var(--carbon); font-size: 9.6pt; line-height: 1.45; background: var(--hueso);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; position: relative; overflow: hidden; background: var(--hueso); padding-bottom: 30mm; }
+.mono { font-family: "Plex Mono", monospace; letter-spacing: .14em; text-transform: uppercase; font-size: 7pt; }
+.light { font-weight: 300; } .trav { color: var(--travertino); } .gris { color: var(--gris); }
+
+.top { background: var(--carbon); color: var(--hueso); padding: 14mm 16mm 11mm; }
+.top .fila { display: flex; justify-content: space-between; align-items: center; }
+.top img { height: 9mm; }
+.top h1 { font-weight: 200; font-size: 38pt; line-height: 1; letter-spacing: -.025em; margin: 12mm 0 4mm; }
+.top p { font-weight: 300; font-size: 12pt; color: var(--gris2); max-width: 150mm; }
+
+.cuerpo { padding: 10mm 16mm 0; }
+.bloque { margin-bottom: 8mm; }
+.bloque > .mono { display: block; margin-bottom: 3mm; }
+
+.servicios { display: grid; grid-template-columns: 1fr 1fr; border-top: .3mm solid var(--carbon); }
+.servicios div { padding: 3.5mm 6mm 0 0; }
+.servicios div + div { padding-left: 6mm; border-left: .2mm solid var(--linea); }
+.servicios h3 { font-weight: 300; font-size: 15pt; margin: 1mm 0 1mm; }
+
+.pasos { display: grid; grid-template-columns: repeat(4, 1fr); border-top: .3mm solid var(--carbon); }
+.paso { padding: 3.5mm 4mm 0 0; }
+.paso + .paso { padding-left: 4mm; border-left: .2mm solid var(--linea); }
+.paso .n { font-weight: 200; font-size: 26pt; line-height: 1; color: var(--travertino); }
+.paso h3 { font-weight: 500; font-size: 10pt; margin: 2mm 0 1mm; }
+.paso p { font-size: 8.6pt; }
+
+.dos { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; }
+.lista { border-top: .3mm solid var(--carbon); }
+.lista li { list-style: none; display: grid; grid-template-columns: 7mm 1fr; padding: 2.3mm 0; border-bottom: .2mm solid var(--linea); font-size: 9pt; }
+.lista li span { font-family: "Plex Mono"; color: var(--travertino); font-size: 8pt; }
+
+.reglas { background: var(--carbon); color: var(--hueso); padding: 7mm 8mm; }
+.reglas .r { display: grid; grid-template-columns: 9mm 1fr; padding: 2.4mm 0; border-top: .2mm solid #3a3733; }
+.reglas .r:first-of-type { border-top: 0; }
+.reglas .r span { font-family: "Plex Mono"; color: var(--travertino); font-size: 8pt; padding-top: .8mm; }
+.reglas b { font-weight: 400; font-size: 11pt; display: block; }
+.reglas small { font-size: 8.4pt; color: var(--gris2); }
+
+
+.paq { margin-top: 10mm; }
+.paq .grupo { display: grid; grid-template-columns: repeat(3, 1fr); border-top: .3mm solid var(--carbon); margin-bottom: 7mm; }
+.paq .p { padding: 4mm 4mm 4mm 0; display: flex; flex-direction: column; }
+.paq .p + .p { padding-left: 4mm; border-left: .2mm solid var(--linea); }
+.paq .p.rec { background: var(--carbon); color: var(--hueso); padding: 4mm !important; border-left: 0; }
+.paq .p.rec + .p { border-left: 0; }
+.paq h3 { font-weight: 400; font-size: 13pt; margin: 1.2mm 0 2.5mm; }
+.paq ul { list-style: none; flex: 1; }
+.paq li { font-size: 8.6pt; padding: 1.3mm 0; border-bottom: .2mm solid var(--linea); }
+.paq .rec li { border-color: #3a3733; }
+.paq li:last-child { border-bottom: 0; }
+.paq .precio { font-weight: 200; font-size: 22pt; line-height: 1; margin-top: 4mm; letter-spacing: -.01em; }
+.paq .precio small { font-size: 9pt; font-weight: 400; margin-right: .8mm; }
+.paq .precio em { font-style: normal; font-family: "Plex Mono"; font-size: 7pt; letter-spacing: .12em; color: var(--gris); margin-left: 1mm; }
+.paq .rec .precio em { color: var(--gris2); }
+.etq { display: inline-block; background: var(--travertino); color: var(--carbon); padding: .5mm 1.8mm; }
+
+.pie { position: absolute; left: 16mm; right: 16mm; bottom: 10mm; display: flex; justify-content: space-between; align-items: flex-end; border-top: .3mm solid var(--carbon); padding-top: 3mm; }
+</style>
+</head>
+<body>
+<section class="page">
+  <div class="top">
+    <div class="fila"><img src="../logo/portico_logo_horizontal_hueso.svg"><span class="mono trav">Brief para corredores inmobiliarios</span></div>
+    <h1>Propiedades que se ven<br>como se viven</h1>
+    <p>Fotografía y reels para listados de alto nivel, listos para publicar en 48 horas. Usted vende; nosotros hacemos que la propiedad se vea a la altura de su precio.</p>
+  </div>
+
+  <div class="cuerpo">
+    <div class="bloque">
+      <span class="mono gris">01 — Qué recibe en cada propiedad</span>
+      <div class="pasos">
+        <div class="paso"><div class="n">20</div><h3>Fotos para portales</h3><p>Editadas, rectas y luminosas, en tamaño para cualquier portal.</p></div>
+        <div class="paso"><div class="n">30 s</div><h3>Reel vertical</h3><p>30 s para Instagram, TikTok y estados de WhatsApp.</p></div>
+        <div class="paso"><div class="n">16:9</div><h3>Versión horizontal</h3><p>Para portales, YouTube y presentaciones a clientes.</p></div>
+        <div class="paso"><div class="n">Logo</div><h3>Su marca al cierre</h3><p>Su logo y contacto al final de cada reel.</p></div>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <span class="mono gris">02 — Cómo funciona</span>
+      <div class="pasos">
+        <div class="paso"><div class="n">1</div><h3>Agenda por WhatsApp</h3><p>Dirección, m², fecha y hora. Confirmamos el mismo día.</p></div>
+        <div class="paso"><div class="n">2</div><h3>Sesión de 1–2 h</h3><p>Fotos y video en la misma visita.</p></div>
+        <div class="paso"><div class="n">3</div><h3>Entrega en 48 h</h3><p>Carpeta en línea lista para descargar y publicar.</p></div>
+        <div class="paso"><div class="n">4</div><h3>Publique y venda</h3><p>Una ronda de ajustes incluida.</p></div>
+      </div>
+    </div>
+
+    <div class="dos">
+      <div>
+        <span class="mono gris" style="display:block; margin-bottom:3mm">03 — Prepare la propiedad</span>
+        <ul class="lista">
+          <li><span>01</span>Todas las luces encendidas y los focos funcionando.</li>
+          <li><span>02</span>Cortinas abiertas y camas tendidas.</li>
+          <li><span>03</span>Sin ropa, basura, fotos familiares ni objetos personales.</li>
+          <li><span>04</span>Autos fuera de la cochera y mascotas fuera del área.</li>
+          <li><span>05</span>Propietario avisado y acceso confirmado.</li>
+        </ul>
+      </div>
+      <div class="reglas">
+        <span class="mono trav" style="display:block; margin-bottom:2mm">04 — Nuestro compromiso</span>
+        <div class="r"><span>I</span><div><b>Imagen real.</b><small>No deformamos espacios. El amueblado virtual siempre va marcado como ilustrativo.</small></div></div>
+        <div class="r"><span>II</span><div><b>48 horas, siempre.</b><small>Su listado no espera. Si no entregamos a tiempo, el reel va por nuestra cuenta.</small></div></div>
+        <div class="r"><span>III</span><div><b>Su marca primero.</b><small>El material es para que usted venda. Pórtico solo firma en el texto del post.</small></div></div>
+      </div>
+    </div>
+
+    <div class="paq">
+      <span class="mono gris" style="display:block; margin-bottom:3mm">05 — Paquetes por propiedad · hasta 200 m²</span>
+      <div class="grupo">
+        <div class="p "><span class="mono gris">Paquete A</span><h3>Listado</h3><ul><li>20 fotografías</li><li>Sesión de hasta 1 h</li><li>Entrega en 48 h</li></ul><div class="precio"><small>Q</small>900</div></div>
+        <div class="p rec"><span class="mono etq">Recomendado</span><h3>Listado + Reel</h3><ul><li>20 fotografías</li><li>Reel vertical de 30 s</li><li>Versión horizontal</li><li>Su logo al cierre</li><li>Entrega en 48 h</li></ul><div class="precio"><small>Q</small>1,500</div></div>
+        <div class="p "><span class="mono gris">Paquete C</span><h3>Premium</h3><ul><li>30 fotografías</li><li>Reel vertical + horizontal</li><li>Tomas con dron</li><li>3 imágenes con amueblado virtual</li><li>Entrega en 72 h</li></ul><div class="precio"><small>Q</small>2,500</div></div>
+      </div>
+
+      <span class="mono trav" style="display:block; margin-bottom:2mm">Planes mensuales · Listado + Reel · para agencias y equipos</span>
+      <div class="grupo">
+        <div class="p "><span class="mono gris">4 propiedades al mes</span><h3>Plan 4</h3><ul><li>Q1,300 por propiedad</li><li>Ahorro de Q800 al mes</li><li>Agenda prioritaria</li></ul><div class="precio"><small>Q</small>5,200<em>/ MES</em></div></div>
+        <div class="p rec"><span class="mono etq">Recomendado</span><h3>Plan 8</h3><ul><li>Q1,200 por propiedad</li><li>Ahorro de Q2,400 al mes</li><li>Agenda prioritaria</li><li>1 reel de marca personal al mes</li></ul><div class="precio"><small>Q</small>9,600<em>/ MES</em></div></div>
+        <div class="p "><span class="mono gris">15 propiedades al mes</span><h3>Plan 15</h3><ul><li>Q1,100 por propiedad</li><li>Ahorro de Q6,000 al mes</li><li>Entrega en 24 h</li><li>2 reels de marca personal al mes</li></ul><div class="precio"><small>Q</small>16,500<em>/ MES</em></div></div>
+      </div>
+      <p class="mono light gris" style="text-transform:none; letter-spacing:.02em; font-size:7.6pt">Precios en quetzales, no incluyen IVA. Propiedades de más de 200 m²: +Q300 por cada 100 m². Área metropolitana de Guatemala; fuera de ella se cotizan viáticos. Adicionales: dron Q600 · atardecer Q800 · amueblado virtual Q250 por imagen. Propiedades del plan no usadas no se acumulan.</p>
+    </div>
+  </div>
+
+  <div class="pie">
+    <div><span class="mono">Bryan Castro</span><br><span class="mono light gris">WhatsApp +502 5413 1753 — <span style="text-transform:none">info@bcarqstudio.com</span> — <span style="text-transform:none">@portico.fa</span></span></div>
+    <img src="../logo/portico_isotipo_carbon.svg" style="height:9mm">
+  </div>
+</section>
+</body>
+</html>
