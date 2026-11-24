@@ -108,6 +108,14 @@ def pieza_isotipo(color, fondo=None, lado=1000):
     return svg(lado, lado, g, fondo)
 
 
+def pieza_perfil(color, fondo, lado=1080):
+    """Foto de perfil: isotipo al 50 % para que respire dentro del recorte circular."""
+    w = lado * 0.50
+    h = w * 0.93
+    g, _ = isotipo((lado - w) / 2, (lado - h) / 2, w, color)
+    return svg(lado, lado, g, fondo)
+
+
 def pieza_vertical(color, sub_color, fondo=None):
     W, H = 1200, 1200
     iso_w = 300
@@ -195,7 +203,9 @@ def guardar(nombre, contenido, ancho_png):
 def main():
     guardar("portico_isotipo_carbon", pieza_isotipo(CARBON), 1000)
     guardar("portico_isotipo_hueso", pieza_isotipo(HUESO), 1000)
-    guardar("portico_perfil_redes", pieza_isotipo(HUESO, fondo=CARBON), 1080)
+    guardar("portico_perfil_redes", pieza_perfil(HUESO, CARBON), 1080)
+    guardar("portico_perfil_redes_claro", pieza_perfil(CARBON, HUESO), 1080)
+    guardar("portico_perfil_redes_travertino", pieza_perfil(CARBON, TRAVERTINO), 1080)
     guardar("portico_logo_vertical_carbon", pieza_vertical(CARBON, GRIS), 2400)
     guardar("portico_logo_vertical_hueso", pieza_vertical(HUESO, TRAVERTINO), 2400)
     guardar("portico_logo_horizontal_carbon", pieza_horizontal(CARBON, GRIS), 2400)
