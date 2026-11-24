@@ -130,6 +130,12 @@ def paginas_proyecto(p, n: int) -> str:
         grupo = gal[i:i + 3]
         celdas = "".join(
             f'<div class="img" style="background-image:url(\'{carpeta}/{g}\')"></div>' for g in grupo)
+        if len(grupo) < 3 and p.get("concepto"):  # completa la fila con la idea del proyecto
+            celdas += (f'<div style="display:flex; flex-direction:column; justify-content:flex-end; padding:0 2mm">'
+                       f'<span class="mono trav">Concepto</span>'
+                       f'<div style="font-weight:200; font-size:22pt; line-height:1.1; letter-spacing:-.01em; margin-top:3mm">'
+                       f'{e(p["concepto"])}</div></div>')
+            grupo = grupo + ["concepto"]
         paginas.append(f"""
 <section class="page" style="padding:18mm 18mm 20mm">
   <div style="display:grid; grid-template-columns: repeat({len(grupo)}, 1fr); gap:5mm; height:160mm">{celdas}</div>
