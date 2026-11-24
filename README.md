@@ -17,6 +17,9 @@ proyectos/  una carpeta por trabajo (los clips no se suben a GitHub)
 | `portico_isotipo_*` | Íconos, sellos, favicon |
 | `portico_perfil_redes.png` | Foto de perfil de Instagram / TikTok / WhatsApp |
 | `portico_marca_agua_blanca.png` | Marca de agua sobre video o foto |
+| `portico_perfil_logo_*.png` | Foto de perfil con isotipo + PÓRTICO |
+
+**Manual de marca:** `marca/manual/Portico_Manual_de_Marca.pdf` · **Plantillas de post:** `python3 marca/posts/generar_posts.py CARPETA_FOTOGRAMAS SALIDA`
 | `portico_tablero_marca.png` | Lámina con paleta y tipografías |
 
 `*_carbon` = para fondo claro · `*_hueso` = para fondo oscuro.

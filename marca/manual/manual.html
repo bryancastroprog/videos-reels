@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Pórtico · Manual de marca</title>
+<style>
+@font-face { font-family: "Archivo"; src: url("../fuentes/Archivo-Variable.ttf"); font-weight: 100 900; font-stretch: 62% 125%; }
+@font-face { font-family: "Plex Mono"; src: url("../fuentes/IBMPlexMono-Light.ttf"); font-weight: 300; }
+@font-face { font-family: "Plex Mono"; src: url("../fuentes/IBMPlexMono-Regular.ttf"); font-weight: 400; }
+@font-face { font-family: "Cormorant"; src: url("../fuentes/CormorantGaramond-Medium.ttf"); font-weight: 500; }
+
+:root { --carbon:#1C1B19; --hueso:#F2EEE7; --travertino:#B49A7A; --gris:#6E6A64; --gris2:#A9A39A; --linea:#D9D3C9; }
+@page { size: 297mm 210mm; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Archivo", sans-serif; color: var(--carbon); font-size: 9.4pt; line-height: 1.5; background: var(--hueso);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 297mm; height: 210mm; position: relative; overflow: hidden; padding: 24mm 20mm 20mm; background: var(--hueso); page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+.oscura { background: var(--carbon); color: var(--hueso); }
+
+.mono { font-family: "Plex Mono", monospace; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; font-size: 7pt; }
+.light { font-weight: 300; }
+.gris { color: var(--gris); } .trav { color: var(--travertino); }
+.oscura .gris { color: var(--gris2); }
+
+.cab { position: absolute; top: 11mm; left: 20mm; right: 20mm; display: flex; justify-content: space-between; }
+.pie { position: absolute; bottom: 9mm; left: 20mm; right: 20mm; display: flex; justify-content: space-between; }
+
+h1 { font-weight: 200; font-size: 46pt; line-height: 1; letter-spacing: -.025em; }
+h2 { font-weight: 200; font-size: 30pt; line-height: 1.04; letter-spacing: -.02em; margin: 3mm 0 6mm; }
+h3 { font-weight: 400; font-size: 12pt; margin-bottom: 1.5mm; }
+p.lead { font-weight: 300; font-size: 11.5pt; line-height: 1.45; max-width: 120mm; }
+
+.cols { display: grid; gap: 12mm; }
+.c2 { grid-template-columns: 1fr 1fr; } .c3 { grid-template-columns: repeat(3, 1fr); } .c4 { grid-template-columns: repeat(4, 1fr); }
+.izq-der { display: grid; grid-template-columns: 95mm 1fr; gap: 16mm; height: 100%; }
+
+.regla { border-top: .3mm solid currentColor; padding-top: 3mm; }
+.item { padding: 2.4mm 0; border-bottom: .2mm solid var(--linea); }
+.oscura .item { border-color: #3a3733; }
+.item .mono { display: block; margin-bottom: .6mm; color: var(--travertino); }
+
+.si-no { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; }
+.si-no h3 { font-family: "Plex Mono"; font-size: 7.5pt; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 3mm; }
+.si-no li { list-style: none; padding: 2mm 0; border-bottom: .2mm solid var(--linea); }
+
+img.full { width: 100%; display: block; }
+.fig { display: flex; flex-direction: column; gap: 2mm; }
+.fig .cap { margin-top: 1mm; }
+</style>
+</head>
+<body>
+
+<!-- 01 PORTADA -->
+<section class="page oscura" style="display:flex; flex-direction:column; justify-content:space-between; padding: 22mm 20mm">
+  <span class="mono trav">Manual de marca y estilo — v1 · Noviembre 2026</span>
+  <div style="display:flex; align-items:flex-end; justify-content:space-between">
+    <img src="../logo/portico_logo_vertical_hueso.svg" style="height:92mm; margin-left:-14mm; margin-bottom:-12mm">
+    <p class="lead" style="max-width:90mm; color:var(--gris2)">Cómo se ve, cómo habla y cómo publica Pórtico. Toda pieza de la marca, de una cotización a un reel, sale de estas reglas.</p>
+  </div>
+</section>
+
+<!-- 02 ESENCIA -->
+<section class="page">
+  <div class="cab"><span class="mono">Pórtico</span><span class="mono gris">01 — Esencia</span></div>
+  <div class="izq-der">
+    <div>
+      <span class="mono trav">Qué es Pórtico</span>
+      <h2>Documentamos la arquitectura tal como fue pensada.</h2>
+      <p class="lead">Fotografía y video de arquitectura, interiorismo y obra. La obra es la protagonista; Pórtico es la mirada que la pone en valor.</p>
+    </div>
+    <div>
+      <div class="cols c2" style="gap:10mm">
+        <div>
+          <span class="mono gris">Para quién</span>
+          <div class="item"><span class="mono">Clientes</span>Despachos de autor, interioristas, desarrolladores boutique, hoteles y restaurantes de diseño.</div>
+          <div class="item"><span class="mono">Audiencia en redes</span>Público estético, de clase alta, con gusto por lo independiente y lo hecho a mano: <i>hipster luxury</i>.</div>
+          <div class="item"><span class="mono">Lo que valoran</span>Lo auténtico sobre lo ostentoso. Materiales nobles, luz natural, piezas con autor.</div>
+        </div>
+        <div>
+          <span class="mono gris">Personalidad — lujo silencioso</span>
+          <div class="item"><span class="mono">Sobria</span>Pocas palabras, mucho espacio. Nunca grita.</div>
+          <div class="item"><span class="mono">Precisa</span>Datos exactos: obra, autor, lugar, año, m².</div>
+          <div class="item"><span class="mono">Cálida</span>Luz de tarde, texturas, grano. Nada frío ni digital.</div>
+          <div class="item"><span class="mono">Discreta</span>Pórtico firma al pie. La obra va primero.</div>
+        </div>
+      </div>
+      <div class="regla" style="margin-top:9mm">
+        <span class="mono trav">Regla de oro</span>
+        <p style="font-size:13pt; font-weight:300; margin-top:2mm">Documentamos, no rebautizamos. El nombre de la obra y su autor siempre se respetan y se acreditan.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pie"><span class="mono light gris">Manual de marca</span><span class="mono light gris">02</span></div>
+</section>
+
+<!-- 03 LOGO -->
+<section class="page">
+  <div class="cab"><span class="mono">Pórtico</span><span class="mono gris">02 — Logotipo</span></div>
+  <div class="izq-der">
+    <div>
+      <span class="mono trav">Concepto</span>
+      <h2>Un dintel y dos columnas.</h2>
+      <p class="lead">El vano entre las columnas tiene proporción 4:5, el formato del post vertical: el marco por el que se mira la arquitectura. Las piezas no se tocan, como en una lectura constructiva.</p>
+      <div style="margin-top:8mm">
+        <div class="item"><span class="mono">Área de respeto</span>Alrededor del logo, libre al menos el ancho de una columna del isotipo.</div>
+        <div class="item"><span class="mono">Tamaño mínimo</span>Isotipo: 8 mm / 40 px. Logo con lema: 35 mm / 200 px.</div>
+        <div class="item"><span class="mono">Archivos</span>marca/logo — SVG para imprenta, PNG para pantalla.</div>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr auto; gap: 5mm">
+      <div style="background:#fff; display:flex; align-items:center; justify-content:center; padding:8mm"><img src="../logo/portico_logo_vertical_carbon.svg" style="width:72%"></div>
+      <div style="background:var(--carbon); display:flex; align-items:center; justify-content:center; padding:8mm"><img src="../logo/portico_logo_vertical_hueso.svg" style="width:72%"></div>
+      <div style="grid-column: span 2; display:grid; grid-template-columns: 2fr 1fr 1fr; gap:5mm">
+        <div style="background:#fff; padding:6mm; display:flex; align-items:center"><img src="../logo/portico_logo_horizontal_carbon.svg" style="width:100%"></div>
+        <div style="background:var(--travertino); padding:6mm; display:flex; align-items:center; justify-content:center"><img src="../logo/portico_isotipo_carbon.svg" style="height:20mm"></div>
+        <div style="padding:2mm 0">
+          <span class="mono gris">No hacer</span>
+          <p style="font-size:8.4pt; margin-top:1.5mm">Deformar, rotar, sombras, contornos, degradados, otros colores, ni poner el logo sobre fotos con mucho detalle.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pie"><span class="mono light gris">Manual de marca</span><span class="mono light gris">03</span></div>
+</section>
+
+<!-- 04 COLOR -->
+<section class="page">
+  <div class="cab"><span class="mono">Pórtico</span><span class="mono gris">03 — Color</span></div>
+  <span class="mono trav">Paleta</span>
+  <h2>Colores de materiales, no de pantalla.</h2>
+  <div style="display:grid; grid-template-columns: 60fr 25fr 10fr 5fr; height:78mm; margin-top:4mm; border:.2mm solid var(--linea)">
+    <div style="background:var(--hueso); padding:5mm; display:flex; flex-direction:column; justify-content:flex-end"><span style="font-size:15pt; font-weight:300">Hueso</span><span class="mono gris">#F2EEE7 — 60 % · fondos</span></div>
+    <div style="background:var(--carbon); color:var(--hueso); padding:5mm; display:flex; flex-direction:column; justify-content:flex-end"><span style="font-size:15pt; font-weight:300">Carbón</span><span class="mono" style="color:var(--gris2)">#1C1B19 — 25 % · texto</span></div>
+    <div style="background:var(--travertino); padding:4mm; display:flex; flex-direction:column; justify-content:flex-end"><span style="font-size:11pt">Travertino</span><span class="mono" style="font-size:6pt">#B49A7A · 10 %</span></div>
+    <div style="background:var(--gris)"></div>
+  </div>
+  <div class="cols c3" style="margin-top:7mm">
+    <div class="item"><span class="mono">Proporción</span>Mucho hueso, carbón para el texto, travertino como acento. Gris piedra (#6E6A64) solo para textos secundarios.</div>
+    <div class="item"><span class="mono">Acento</span>El travertino nunca va en textos largos: solo etiquetas, una cifra o un bloque de color.</div>
+    <div class="item"><span class="mono">Prohibido</span>Blanco puro, negro puro, colores saturados y neones. Las fotos ponen el color; la marca, la calma.</div>
+  </div>
+  <div class="pie"><span class="mono light gris">Manual de marca</span><span class="mono light gris">04</span></div>
+</section>
+
+<!-- 05 TIPOGRAFÍA -->
+<section class="page">
+  <div class="cab"><span class="mono">Pórtico</span><span class="mono gris">04 — Tipografía</span></div>
+  <div class="izq-der">
+    <div>
+      <span class="mono trav">Sistema</span>
+      <h2>Tres voces, cada una en su lugar.</h2>
+      <div class="item"><span class="mono">Cormorant Garamond</span>Solo en el logotipo. Nunca en textos.</div>
+      <div class="item"><span class="mono">Archivo</span>Títulos (ExtraLight / Light) y textos (Regular). Grotesca sobria, de despacho.</div>
+      <div class="item"><span class="mono">IBM Plex Mono</span>Datos y etiquetas: obra, lugar, año, m², precios. En mayúsculas espaciadas, como anotaciones de plano.</div>
+      <div class="item"><span class="mono">Alineación</span>Siempre a la izquierda. Sin textos centrados, sin cursivas decorativas.</div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:7mm; justify-content:center">
+      <div><span class="mono gris">Archivo ExtraLight — Títulos</span><div style="font-weight:200; font-size:52pt; line-height:1; letter-spacing:-.025em">Fragmento</div></div>
+      <div><span class="mono gris">Archivo Light — Subtítulos</span><div style="font-weight:300; font-size:20pt">Fragmento Arquitectura</div></div>
+      <div><span class="mono gris">Archivo Regular — Texto</span><div style="font-size:10.5pt; max-width:140mm">Una instalación de piezas iridiscentes sobre muros curvos. La luz cambia con cada hora del día y con cada mirada.</div></div>
+      <div><span class="mono gris">Plex Mono — Datos</span><div class="mono" style="font-size:10pt; margin-top:1mm">Interiorismo — Ciudad de Guatemala — 2026</div></div>
+    </div>
+  </div>
+  <div class="pie"><span class="mono light gris">Manual de marca</span><span class="mono light gris">05</span></div>
+</section>
+
+<!-- 06 IMAGEN -->
+<section class="page">
+  <div class="cab"><span class="mono">Pórtico</span><span class="mono gris">05 — Estilo de imagen</span></div>
+  <div class="izq-der">
+    <div>
+      <span class="mono trav">El look Pórtico</span>
+      <h2>Cálido, mate y con grano.</h2>
+      <p class="lead">Negros suaves, saturación contenida, temperatura de tarde y grano fino de película. Se aplica igual a fotos, reels y portadas, para que todo el perfil se vea como una sola serie.</p>
+      <div class="si-no" style="margin-top:7mm">
+        <ul><h3>Sí</h3><li>Verticales rectas</li><li>Luz natural, horas doradas</li><li>Espacio negativo</li><li>Detalle de material y textura</li><li>Tomas lentas y estables</li></ul>
+        <ul><h3>No</h3><li>HDR exagerado</li><li>Gran angular que deforma</li><li>Filtros de la app</li><li>Personas posando a cámara</li><li>Textos sobre la foto</li></ul>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:5mm; align-content:center">
+      <div class="fig"><img class="full" src="img/antes.jpg"><span class="mono gris cap">Original</span></div>
+      <div class="fig"><img class="full" src="img/despues.jpg"><span class="mono trav cap">Look Pórtico</span></div>
+    </div>
+  </div>
+  <div class="pie"><span class="mono light gris">Manual de marca</span><span class="mono light gris">06</span></div>
+</section>
+
+<!-- 07 CUADRÍCULA -->
+<section class="page">
+  <div class="cab"><span class="mono">Pórtico</span><span class="mono gris">06 — Instagram: cuadrícula</span></div>
+  <div class="izq-der" style="grid-template-columns: 1fr 92mm">
+    <div>
+      <span class="mono trav">Sistema de cuadrícula</span>
+      <h2>El perfil se lee como una revista.</h2>
+      <p class="lead">Las imágenes mandan y los posts tipográficos marcan el ritmo. Si alguien abre el perfil sin leer nada, debe entender en 3 segundos qué hace Pórtico y con qué nivel.</p>
+      <div class="cols c2" style="gap:8mm; margin-top:7mm">
+        <div>
+          <div class="item"><span class="mono">Ritmo</span>Por cada 3 posts: 2 de imagen y 1 tipográfico o reel.</div>
+          <div class="item"><span class="mono">Columna central</span>Los posts tipográficos van en la columna del centro, cada dos filas, para formar una línea vertical.</div>
+          <div class="item"><span class="mono">Una obra por fila</span>Publicar cada proyecto en bloques de 3 para que cada fila cuente una sola historia.</div>
+        </div>
+        <div>
+          <div class="item"><span class="mono">Formato</span>1080 × 1350 px (4:5). La cuadrícula muestra el centro 3:4: nada importante a menos de 96 px de los bordes laterales.</div>
+          <div class="item"><span class="mono">Cadencia</span>3 posts por semana. Lunes: obra · Miércoles: reel · Viernes: ficha o manifiesto.</div>
+          <div class="item"><span class="mono">Producción</span>Las plantillas salen de marca/posts/generar_posts.py.</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center"><img class="full" src="img/simulacion_perfil.jpg" style="box-shadow:0 2mm 8mm rgba(0,0,0,.12)"></div>
+  </div>
+  <div class="pie"><span class="mono light gris">Manual de marca</span><span class="mono light gris">07</span></div>
+</section>
+
+<!-- 08 PLANTILLAS -->
+<section class="page">
+  <div class="cab"><span class="mono">Pórtico</span><span class="mono gris">07 — Instagram: tipos de post</span></div>
+  <span class="mono trav">Plantillas</span>
+  <h2>Cinco tipos de post. Ni uno más.</h2>
+  <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap:5mm; margin-top:2mm">
+    <div class="fig"><img class="full" src="img/post_01_obra.jpg"><span class="mono">Obra</span><span style="font-size:8.2pt">Imagen a sangre, sin texto. Es el 60 % del perfil.</span></div>
+    <div class="fig"><img class="full" src="img/post_04_reel.jpg"><span class="mono">Reel</span><span style="font-size:8.2pt">Portada limpia con la etiqueta REEL. Un reel por semana.</span></div>
+    <div class="fig"><img class="full" src="img/post_02_ficha.jpg"><span class="mono">Ficha de obra</span><span style="font-size:8.2pt">Obra, autor, lugar, año y créditos. Abre cada proyecto.</span></div>
+    <div class="fig"><img class="full" src="img/post_08_manifiesto.jpg"><span class="mono">Manifiesto</span><span style="font-size:8.2pt">Una frase de marca, máximo 12 palabras. Hueso o carbón.</span></div>
+    <div class="fig"><img class="full" src="img/post_x_servicio.jpg"><span class="mono">Carrusel de servicio</span><span style="font-size:8.2pt">Portada travertino para explicar servicios o procesos.</span></div>
+  </div>
+  <div class="pie"><span class="mono light gris">Manual de marca</span><span class="mono light gris">08</span></div>
+</section>
+
+<!-- 09 VOZ Y TEXTOS -->
+<section class="page">
+  <div class="cab"><span class="mono">Pórtico</span><span class="mono gris">08 — Voz y textos</span></div>
+  <div class="izq-der">
+    <div>
+      <span class="mono trav">Cómo hablamos</span>
+      <h2>Poco, exacto y con crédito.</h2>
+      <div class="si-no" style="margin-top:4mm">
+        <ul><h3>Sí</h3><li>Frases cortas, en presente</li><li>Datos concretos</li><li>Nombrar y etiquetar autores</li><li>Hablar de luz, material, proporción</li></ul>
+        <ul><h3>No</h3><li>“Increíble”, “espectacular”, “de ensueño”</li><li>Más de 1 emoji</li><li>Títulos inventados para obras ajenas</li><li>Más de 5 hashtags</li></ul>
+      </div>
+    </div>
+    <div>
+      <span class="mono gris">Estructura del texto del post</span>
+      <div style="background:#fff; padding:7mm; margin-top:3mm; font-size:9.6pt; line-height:1.65; border:.2mm solid var(--linea)">
+        <span class="mono gris">1 — Una línea sobre la obra</span><br>
+        Piezas iridiscentes sobre muros curvos: la luz cambia con cada hora.<br><br>
+        <span class="mono gris">2 — Créditos</span><br>
+        Obra: Fragmento<br>Autor: @cuenta_del_autor<br>Ubicación: Ciudad de Guatemala<br>Video: @portico.fa<br><br>
+        <span class="mono gris">3 — Hashtags (máximo 5)</span><br>
+        #arquitecturaguatemala #interiorismo #fotografiaarquitectonica #diseñointerior #guatemala
+      </div>
+      <div class="item" style="margin-top:5mm"><span class="mono">Biografía</span>Pórtico · Fotografía arquitectónica — Fotografía y video de arquitectura y obra — Ciudad de Guatemala — Proyectos · WhatsApp 5413 1753</div>
+    </div>
+  </div>
+  <div class="pie"><span class="mono light gris">Manual de marca</span><span class="mono light gris">09</span></div>
+</section>
+
+<!-- 10 CIERRE -->
+<section class="page oscura" style="display:flex; flex-direction:column; justify-content:space-between">
+  <span class="mono trav">Pórtico</span>
+  <div>
+    <h1 style="max-width:200mm">La obra va primero.<br>Pórtico firma al pie.</h1>
+  </div>
+  <div style="display:flex; justify-content:space-between; align-items:flex-end">
+    <img src="../logo/portico_isotipo_hueso.svg" style="height:18mm; margin-left:-3mm">
+    <span class="mono gris">@portico.fa — WhatsApp +502 5413 1753</span>
+  </div>
+</section>
+
+</body>
+</html>
