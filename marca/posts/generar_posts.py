@@ -76,8 +76,15 @@ def balance_hueso(a: np.ndarray) -> np.ndarray:
     return np.clip(a * ganancia, 0, 1)
 
 
+# Pórtico usa el color original de cada foto. Cambiar a True solo si se quiere
+# volver a aplicar el filtro (blancos en Hueso, negros mate, grano).
+APLICAR_LOOK = False
+
+
 def graduar(img: Image.Image, grano=5.0, semilla=7) -> Image.Image:
-    """Look de marca: blancos en Hueso, negros mate, saturación contenida, grano fino."""
+    """Devuelve la imagen con su color original (o con el look si APLICAR_LOOK)."""
+    if not APLICAR_LOOK:
+        return img.convert("RGB")
     a = np.asarray(img.convert("RGB")).astype(np.float32) / 255.0
     a = balance_hueso(a)
     # curva suave: negros mate, altas luces contenidas
