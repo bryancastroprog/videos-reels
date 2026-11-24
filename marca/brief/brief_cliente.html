@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Pórtico en 1 minuto</title>
+<style>
+@font-face { font-family: "Archivo"; src: url("../fuentes/Archivo-Variable.ttf"); font-weight: 100 900; font-stretch: 62% 125%; }
+@font-face { font-family: "Plex Mono"; src: url("../fuentes/IBMPlexMono-Light.ttf"); font-weight: 300; }
+@font-face { font-family: "Plex Mono"; src: url("../fuentes/IBMPlexMono-Regular.ttf"); font-weight: 400; }
+:root { --carbon:#1C1B19; --hueso:#F2EEE7; --travertino:#B49A7A; --gris:#6E6A64; --gris2:#A9A39A; --linea:#D9D3C9; }
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Archivo", sans-serif; color: var(--carbon); font-size: 9.6pt; line-height: 1.45; background: var(--hueso);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 210mm; height: 297mm; position: relative; overflow: hidden; background: var(--hueso); }
+.mono { font-family: "Plex Mono", monospace; letter-spacing: .14em; text-transform: uppercase; font-size: 7pt; }
+.light { font-weight: 300; } .trav { color: var(--travertino); } .gris { color: var(--gris); }
+
+.top { background: var(--carbon); color: var(--hueso); padding: 14mm 16mm 11mm; }
+.top .fila { display: flex; justify-content: space-between; align-items: center; }
+.top img { height: 9mm; }
+.top h1 { font-weight: 200; font-size: 38pt; line-height: 1; letter-spacing: -.025em; margin: 12mm 0 4mm; }
+.top p { font-weight: 300; font-size: 12pt; color: var(--gris2); max-width: 150mm; }
+
+.cuerpo { padding: 10mm 16mm 0; }
+.bloque { margin-bottom: 8mm; }
+.bloque > .mono { display: block; margin-bottom: 3mm; }
+
+.servicios { display: grid; grid-template-columns: 1fr 1fr; border-top: .3mm solid var(--carbon); }
+.servicios div { padding: 3.5mm 6mm 0 0; }
+.servicios div + div { padding-left: 6mm; border-left: .2mm solid var(--linea); }
+.servicios h3 { font-weight: 300; font-size: 15pt; margin: 1mm 0 1mm; }
+
+.pasos { display: grid; grid-template-columns: repeat(4, 1fr); border-top: .3mm solid var(--carbon); }
+.paso { padding: 3.5mm 4mm 0 0; }
+.paso + .paso { padding-left: 4mm; border-left: .2mm solid var(--linea); }
+.paso .n { font-weight: 200; font-size: 26pt; line-height: 1; color: var(--travertino); }
+.paso h3 { font-weight: 500; font-size: 10pt; margin: 2mm 0 1mm; }
+.paso p { font-size: 8.6pt; }
+
+.dos { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; }
+.lista { border-top: .3mm solid var(--carbon); }
+.lista li { list-style: none; display: grid; grid-template-columns: 7mm 1fr; padding: 2.3mm 0; border-bottom: .2mm solid var(--linea); font-size: 9pt; }
+.lista li span { font-family: "Plex Mono"; color: var(--travertino); font-size: 8pt; }
+
+.reglas { background: var(--carbon); color: var(--hueso); padding: 7mm 8mm; }
+.reglas .r { display: grid; grid-template-columns: 9mm 1fr; padding: 2.4mm 0; border-top: .2mm solid #3a3733; }
+.reglas .r:first-of-type { border-top: 0; }
+.reglas .r span { font-family: "Plex Mono"; color: var(--travertino); font-size: 8pt; padding-top: .8mm; }
+.reglas b { font-weight: 400; font-size: 11pt; display: block; }
+.reglas small { font-size: 8.4pt; color: var(--gris2); }
+
+.pie { position: absolute; left: 16mm; right: 16mm; bottom: 10mm; display: flex; justify-content: space-between; align-items: flex-end; border-top: .3mm solid var(--carbon); padding-top: 3mm; }
+</style>
+</head>
+<body>
+<section class="page">
+  <div class="top">
+    <div class="fila"><img src="../logo/portico_logo_horizontal_hueso.svg"><span class="mono trav">Brief para clientes</span></div>
+    <h1>Pórtico en 1 minuto</h1>
+    <p>Fotografía y reels de arquitectura, interiorismo y obra. Su obra es la protagonista; nosotros la documentamos tal como fue pensada.</p>
+  </div>
+
+  <div class="cuerpo">
+    <div class="bloque">
+      <span class="mono gris">01 — Qué hacemos</span>
+      <div class="servicios">
+        <div><span class="mono trav">Por proyecto</span><h3>Obra terminada</h3>Fotografía y reels en la misma sesión, para portafolio, redes, publicaciones y concursos.</div>
+        <div><span class="mono trav">Mensual</span><h3>Documentación de obra</h3>Visitas periódicas con fotos y reels de avance desde puntos fijos, para clientes e inversionistas.</div>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <span class="mono gris">02 — Cómo trabajamos</span>
+      <div class="pasos">
+        <div class="paso"><div class="n">1</div><h3>Llamada de 20 min</h3><p>Definimos qué destacar, uso del material y fecha.</p></div>
+        <div class="paso"><div class="n">2</div><h3>Sesión</h3><p>Luz natural. Si el clima no ayuda, reprogramamos sin costo.</p></div>
+        <div class="paso"><div class="n">3</div><h3>Edición</h3><p>Look Pórtico: cálido, sobrio y coherente en foto y video.</p></div>
+        <div class="paso"><div class="n">4</div><h3>Entrega</h3><p>De 5 a 10 días hábiles, con una ronda de ajustes incluida.</p></div>
+      </div>
+    </div>
+
+    <div class="dos">
+      <div>
+        <span class="mono gris" style="display:block; margin-bottom:3mm">03 — Lo que necesitamos de usted</span>
+        <ul class="lista">
+          <li><span>01</span>Espacio limpio, ordenado y listo el día de la sesión.</li>
+          <li><span>02</span>Acceso y horario confirmados. Mejor de mañana o al atardecer.</li>
+          <li><span>03</span>Nombre de la obra, autor y colaboradores, con sus @.</li>
+          <li><span>04</span>Tres cosas que quiere destacar del proyecto.</li>
+          <li><span>05</span>Anticipo del 50 % para reservar la fecha.</li>
+        </ul>
+      </div>
+      <div class="reglas">
+        <span class="mono trav" style="display:block; margin-bottom:2mm">04 — Nuestras 3 reglas</span>
+        <div class="r"><span>I</span><div><b>Documentamos, no rebautizamos.</b><small>El nombre de su obra y su autor se respetan siempre.</small></div></div>
+        <div class="r"><span>II</span><div><b>El crédito siempre va.</b><small>Usted publica con “Fotografía / Video: Pórtico”; nosotros lo etiquetamos a usted.</small></div></div>
+        <div class="r"><span>III</span><div><b>Menos es más.</b><small>Imágenes limpias, sin textos encima ni filtros de app. La obra habla sola.</small></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pie">
+    <div><span class="mono">Bryan Castro</span><br><span class="mono light gris">WhatsApp +502 5413 1753 — <span style="text-transform:none">info@bcarqstudio.com</span> — <span style="text-transform:none">@portico.fa</span></span></div>
+    <img src="../logo/portico_isotipo_carbon.svg" style="height:9mm">
+  </div>
+</section>
+</body>
+</html>
