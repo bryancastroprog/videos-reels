@@ -6,6 +6,7 @@ Requiere: pyyaml, qrcode, node + playwright (para el PDF).
 from __future__ import annotations
 
 import html
+import re
 import subprocess
 from pathlib import Path
 
@@ -184,12 +185,25 @@ def main():
     cuerpo += pagina_contacto(d)
     doc = (f'<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Pórtico · {e(d["edicion"])}</title>'
            f'<style>{CSS} svg {{ width:100%; height:100%; display:block; }}</style></head><body>{cuerpo}</body></html>')
-    salida_html = AQUI / "portafolio.html"
-    salida_html.write_text(doc, encoding="utf-8")
-    pdf = AQUI / f"Portico_{d['edicion'].replace(' ', '_')}.pdf"
-    subprocess.run(["node", str(RAIZ / "herramientas" / "a_pdf.js"), str(salida_html), str(pdf),
-                    str(AQUI / ".vista")], check=True)
-    print("Listo:", pdf)
+    base = f"Portico_{d['edicion'].replace(' ', '_')}"
+    # Pantalla: imágenes livianas. Impresión: si existe proyectos/ID/alta/FOTO, usa ese
+    # original sin recomprimir.
+    for version, sufijo in (("pantalla", ""), ("impresion", "_Impresion")):
+        html_v = doc
+        if version == "impresion":
+            def alta(m):
+                ruta = m.group(1)
+                carpeta, nombre = ruta.rsplit("/", 1)
+                candidato = AQUI / carpeta / "alta" / nombre
+                return f"url('{carpeta}/alta/{nombre}')" if candidato.exists() else m.group(0)
+            html_v = re.sub(r"url\('(proyectos/[^']+)'\)", alta, html_v)
+            html_v = re.sub(r"url\(\\'(proyectos/[^']+?)\\'\)", lambda m: alta(m).replace("'", "\\'"), html_v)
+        salida_html = AQUI / ("portafolio.html" if version == "pantalla" else "portafolio_impresion.html")
+        salida_html.write_text(html_v, encoding="utf-8")
+        pdf = AQUI / f"{base}{sufijo}.pdf"
+        subprocess.run(["node", str(RAIZ / "herramientas" / "a_pdf.js"), str(salida_html), str(pdf),
+                        str(AQUI / f".vista{sufijo}")], check=True)
+        print("Listo:", pdf)
 
 
 if __name__ == "__main__":

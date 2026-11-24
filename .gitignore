@@ -6,3 +6,4 @@ proyectos/*/revision/
 __pycache__/
 .DS_Store
 portafolio/.vista_*.png
+portafolio/.vista_Impresion_*.png
