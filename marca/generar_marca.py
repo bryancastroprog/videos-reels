@@ -116,6 +116,20 @@ def pieza_perfil(color, fondo, lado=1080):
     return svg(lado, lado, g, fondo)
 
 
+def pieza_perfil_logo(color, fondo, lado=1080):
+    """Perfil con isotipo + PÓRTICO, todo dentro del círculo de Instagram."""
+    iso_w = lado * 0.30
+    tam = lado * 0.105
+    cap = alto_mayusculas(SERIF, tam)
+    sep = lado * 0.07
+    alto = iso_w * 0.93 + sep + cap
+    y0 = (lado - alto) / 2 + lado * 0.01
+    g, ih = isotipo((lado - iso_w) / 2, y0, iso_w, color)
+    d, _ = texto_a_path("PÓRTICO", SERIF, tam, lado / 2, y0 + ih + sep + cap,
+                        tracking=0.22, ancla="middle")
+    return svg(lado, lado, f'{g}\n  <path d="{d}" fill="{color}"/>', fondo)
+
+
 def pieza_vertical(color, sub_color, fondo=None):
     W, H = 1200, 1200
     iso_w = 300
@@ -206,6 +220,9 @@ def main():
     guardar("portico_perfil_redes", pieza_perfil(HUESO, CARBON), 1080)
     guardar("portico_perfil_redes_claro", pieza_perfil(CARBON, HUESO), 1080)
     guardar("portico_perfil_redes_travertino", pieza_perfil(CARBON, TRAVERTINO), 1080)
+    guardar("portico_perfil_logo_carbon", pieza_perfil_logo(HUESO, CARBON), 1080)
+    guardar("portico_perfil_logo_hueso", pieza_perfil_logo(CARBON, HUESO), 1080)
+    guardar("portico_perfil_logo_travertino", pieza_perfil_logo(CARBON, TRAVERTINO), 1080)
     guardar("portico_logo_vertical_carbon", pieza_vertical(CARBON, GRIS), 2400)
     guardar("portico_logo_vertical_hueso", pieza_vertical(HUESO, TRAVERTINO), 2400)
     guardar("portico_logo_horizontal_carbon", pieza_horizontal(CARBON, GRIS), 2400)
