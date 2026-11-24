@@ -68,7 +68,7 @@ proyectos:
     portada: fachada.jpg
     encuadre_portada: "27% 50%"
     galeria: []
-    plena: [esquina-curva.jpg, recorrido.jpg]
+    plena: [esquina-curva.jpg, estanteria-planta.jpg, recorrido.jpg]
 
   - id: fragmento
     obra: "Fragmento"
