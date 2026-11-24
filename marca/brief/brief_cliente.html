@@ -8,11 +8,11 @@
 @font-face { font-family: "Plex Mono"; src: url("../fuentes/IBMPlexMono-Light.ttf"); font-weight: 300; }
 @font-face { font-family: "Plex Mono"; src: url("../fuentes/IBMPlexMono-Regular.ttf"); font-weight: 400; }
 :root { --carbon:#1C1B19; --hueso:#F2EEE7; --travertino:#B49A7A; --gris:#6E6A64; --gris2:#A9A39A; --linea:#D9D3C9; }
-@page { size: A4; margin: 0; }
+@page { margin: 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: "Archivo", sans-serif; color: var(--carbon); font-size: 9.6pt; line-height: 1.45; background: var(--hueso);
   -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-.page { width: 210mm; height: 297mm; position: relative; overflow: hidden; background: var(--hueso); }
+.page { width: 210mm; position: relative; overflow: hidden; background: var(--hueso); padding-bottom: 30mm; }
 .mono { font-family: "Plex Mono", monospace; letter-spacing: .14em; text-transform: uppercase; font-size: 7pt; }
 .light { font-weight: 300; } .trav { color: var(--travertino); } .gris { color: var(--gris); }
 
@@ -49,6 +49,24 @@ body { font-family: "Archivo", sans-serif; color: var(--carbon); font-size: 9.6p
 .reglas .r span { font-family: "Plex Mono"; color: var(--travertino); font-size: 8pt; padding-top: .8mm; }
 .reglas b { font-weight: 400; font-size: 11pt; display: block; }
 .reglas small { font-size: 8.4pt; color: var(--gris2); }
+
+
+.paq { margin-top: 10mm; }
+.paq .grupo { display: grid; grid-template-columns: repeat(3, 1fr); border-top: .3mm solid var(--carbon); margin-bottom: 7mm; }
+.paq .p { padding: 4mm 4mm 4mm 0; display: flex; flex-direction: column; }
+.paq .p + .p { padding-left: 4mm; border-left: .2mm solid var(--linea); }
+.paq .p.rec { background: var(--carbon); color: var(--hueso); padding: 4mm !important; border-left: 0; }
+.paq .p.rec + .p { border-left: 0; }
+.paq h3 { font-weight: 400; font-size: 13pt; margin: 1.2mm 0 2.5mm; }
+.paq ul { list-style: none; flex: 1; }
+.paq li { font-size: 8.6pt; padding: 1.3mm 0; border-bottom: .2mm solid var(--linea); }
+.paq .rec li { border-color: #3a3733; }
+.paq li:last-child { border-bottom: 0; }
+.paq .precio { font-weight: 200; font-size: 22pt; line-height: 1; margin-top: 4mm; letter-spacing: -.01em; }
+.paq .precio small { font-size: 9pt; font-weight: 400; margin-right: .8mm; }
+.paq .precio em { font-style: normal; font-family: "Plex Mono"; font-size: 7pt; letter-spacing: .12em; color: var(--gris); margin-left: 1mm; }
+.paq .rec .precio em { color: var(--gris2); }
+.etq { display: inline-block; background: var(--travertino); color: var(--carbon); padding: .5mm 1.8mm; }
 
 .pie { position: absolute; left: 16mm; right: 16mm; bottom: 10mm; display: flex; justify-content: space-between; align-items: flex-end; border-top: .3mm solid var(--carbon); padding-top: 3mm; }
 </style>
@@ -97,6 +115,23 @@ body { font-family: "Archivo", sans-serif; color: var(--carbon); font-size: 9.6p
         <div class="r"><span>II</span><div><b>El crédito siempre va.</b><small>Usted publica con “Fotografía / Video: Pórtico”; nosotros lo etiquetamos a usted.</small></div></div>
         <div class="r"><span>III</span><div><b>Menos es más.</b><small>Imágenes limpias, sin textos encima ni filtros de app. La obra habla sola.</small></div></div>
       </div>
+    </div>
+
+    <div class="paq">
+      <span class="mono gris" style="display:block; margin-bottom:3mm">05 — Paquetes · Fotografía + Reels</span>
+      <span class="mono trav" style="display:block; margin-bottom:2mm">Obra terminada — por proyecto</span>
+      <div class="grupo">
+        <div class="p "><span class="mono gris">Paquete A</span><h3>Esencial</h3><ul><li>Sesión de hasta 2 h</li><li>15 fotografías</li><li>1 reel vertical de 30 s</li><li>Entrega en 5 días hábiles</li></ul><div class="precio"><small>Q</small>3,500</div></div>
+        <div class="p rec"><span class="mono etq">Recomendado</span><h3>Portafolio</h3><ul><li>Sesión de hasta 4 h</li><li>25 fotografías</li><li>2 reels verticales de 30 s</li><li>Dron si el sitio lo permite</li><li>Entrega en 7 días hábiles</li></ul><div class="precio"><small>Q</small>5,500</div></div>
+        <div class="p "><span class="mono gris">Paquete C</span><h3>Editorial</h3><ul><li>Jornada: día y atardecer</li><li>40 fotografías</li><li>3 reels + versiones horizontales</li><li>Dron · selección para revistas</li><li>Entrega en 10 días hábiles</li></ul><div class="precio"><small>Q</small>8,500</div></div>
+      </div>
+      <span class="mono trav" style="display:block; margin-bottom:2mm">Documentación de obra — mensual, mínimo 3 meses</span>
+      <div class="grupo">
+        <div class="p "><span class="mono gris">1 visita al mes</span><h3>Obra Base</h3><ul><li>20 fotografías desde puntos fijos</li><li>1 reel de avance</li><li>Reporte visual en PDF</li></ul><div class="precio"><small>Q</small>3,000<em>/ MES</em></div></div>
+        <div class="p rec"><span class="mono etq">Recomendado</span><h3>Obra Plus</h3><ul><li>2 visitas al mes</li><li>30 fotografías · dron</li><li>2 reels de avance</li><li>Reporte visual en PDF</li></ul><div class="precio"><small>Q</small>5,000<em>/ MES</em></div></div>
+        <div class="p "><span class="mono gris">4 visitas al mes</span><h3>Obra Completa</h3><ul><li>40 fotografías · dron</li><li>4 reels (1 por semana)</li><li>Comparativos antes / después</li><li>Sesión Portafolio al terminar la obra</li></ul><div class="precio"><small>Q</small>8,500<em>/ MES</em></div></div>
+      </div>
+      <p class="mono light gris" style="text-transform:none; letter-spacing:.02em; font-size:7.6pt">Precios en quetzales, no incluyen IVA. Adicionales: reel extra Q1,500 · atardecer Q1,200 · dron Q800 · fotografía extra Q100.</p>
     </div>
   </div>
 
