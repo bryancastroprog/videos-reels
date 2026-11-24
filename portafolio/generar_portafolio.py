@@ -139,10 +139,9 @@ def paginas_proyecto(p, n: int) -> str:
     for j, img in enumerate(p.get("plena", []), 1):
         paginas.append(f"""
 <section class="page">
-  <div class="img" style="position:absolute; inset:0; background-image:url('{carpeta}/{img}')"></div>
-  <div style="position:absolute; left:0; right:0; bottom:0; height:22mm; background:linear-gradient(transparent, rgba(0,0,0,.45))"></div>
-  <div class="pie"><span class="mono" style="color:#fff">{e(p['obra'])} — {e(p['autor'])} — {'Fotograma de video' if p['medio'] == 'video' else 'Fotografía'}: Pórtico</span>
-  <span class="mono" style="color:#fff">{n:02d}.{len(gal) // 3 + j + (1 if len(gal) % 3 else 0)}</span></div>
+  <div class="img" style="position:absolute; left:0; right:0; top:0; bottom:20mm; background-image:url('{carpeta}/{img}')"></div>
+  <div class="pie" style="bottom:7.5mm"><span class="mono gris">{e(p['obra'])} — {e(p['autor'])} — {'Fotograma de video' if p['medio'] == 'video' else 'Fotografía'}: Pórtico</span>
+  <span class="mono gris">{n:02d}.{len(gal) // 3 + j + (1 if len(gal) % 3 else 0)}</span></div>
 </section>""")
     return "".join(paginas)
 
