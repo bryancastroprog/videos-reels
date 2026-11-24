@@ -57,17 +57,35 @@ def espaciado(d: ImageDraw.ImageDraw, xy, texto, fuente, tracking, color, ancla=
 
 
 # ------------------------------------------------------------- look Pórtico
+def balance_hueso(a: np.ndarray) -> np.ndarray:
+    """Calibra los blancos de la foto al Hueso de la paleta (#F2EEE7).
+
+    Toma el 15 % de píxeles más claros y poco saturados (muros, techos) y ajusta
+    cada canal para que su tono coincida con el Hueso. Evita dominantes rosas,
+    verdes o azules que no son de la marca. No toca la luminosidad general.
+    """
+    lum = a.mean(axis=2)
+    sat = a.max(axis=2) - a.min(axis=2)
+    mask = (lum > np.percentile(lum, 85)) & (sat < np.percentile(sat, 60)) & (lum < 0.98)
+    if mask.sum() < 500:
+        return a
+    ref = a[mask].mean(axis=0)
+    objetivo = np.array(HUESO, dtype=np.float32) / 255.0
+    ganancia = (objetivo / objetivo.mean()) / (ref / ref.mean())
+    ganancia = np.clip(ganancia, 0.85, 1.15)  # corrección moderada
+    return np.clip(a * ganancia, 0, 1)
+
+
 def graduar(img: Image.Image, grano=5.0, semilla=7) -> Image.Image:
-    """Look de marca: cálido, negros levantados (mate), saturación contenida, grano fino."""
+    """Look de marca: blancos en Hueso, negros mate, saturación contenida, grano fino."""
     a = np.asarray(img.convert("RGB")).astype(np.float32) / 255.0
+    a = balance_hueso(a)
     # curva suave: negros mate, altas luces contenidas
     a = 0.055 + a * 0.915
     a = a + 0.04 * np.sin(np.pi * a) * (a - 0.5)  # leve S
     # saturación 0.86
     lum = (a * np.array([0.299, 0.587, 0.114])).sum(axis=2, keepdims=True)
     a = lum + (a - lum) * 0.86
-    # temperatura cálida
-    a *= np.array([1.025, 1.0, 0.955])
     # grano de película sobre la luminancia
     rng = np.random.default_rng(semilla)
     ruido = rng.normal(0, grano / 255.0, a.shape[:2])[..., None]
