@@ -36,7 +36,7 @@ CSS = """
 :root { --carbon:#1C1B19; --hueso:#F2EEE7; --travertino:#B49A7A; --gris:#6E6A64; --gris2:#A9A39A; --linea:#D9D3C9; }
 @page { size: 297mm 210mm; margin: 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: "Archivo", sans-serif; color: var(--carbon); font-size: 9.4pt; line-height: 1.5; background: var(--hueso);
+body { font-family: "Archivo", sans-serif; color: var(--carbon); font-size: 9.4pt; line-height: 1.5; background: transparent;
   -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 .page { width: 297mm; height: 210mm; position: relative; overflow: hidden; background: var(--hueso); page-break-after: always; }
 .page:last-child { page-break-after: auto; }
