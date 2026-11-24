@@ -1,0 +1,61 @@
+# ============================================================
+#  PÓRTICO · datos del portafolio
+#  Para agregar un proyecto: crea portafolio/proyectos/ID/ con
+#  sus imágenes (verticales u horizontales) y agrégalo abajo.
+#  Luego:  python3 portafolio/generar_portafolio.py
+# ============================================================
+
+edicion: "Portafolio 2026"
+
+estudio:
+  frase: "Documentamos la arquitectura tal como fue pensada."
+  texto: >-
+    Pórtico es un estudio de fotografía y video de arquitectura, interiorismo y obra
+    en Ciudad de Guatemala. Trabajamos con despachos de autor, interioristas,
+    desarrolladores y corredores que necesitan que su obra se vea a la altura de su diseño.
+  servicios:
+    - nombre: "Obra terminada"
+      detalle: "Fotografía y reels en una misma sesión, para portafolio, redes, publicaciones y concursos."
+    - nombre: "Documentación de obra"
+      detalle: "Registro mensual del avance en foto y reel, desde puntos fijos."
+    - nombre: "Listados inmobiliarios"
+      detalle: "Fotos y reels para corredores, listos para publicar en 48 horas."
+
+contacto:
+  nombre: "Bryan Castro"
+  whatsapp: "+502 5413 1753"
+  correo: "info@bcarqstudio.com"
+  instagram: "portico.fa"
+
+# Créditos: siempre como los confirma el cliente. Nunca inventar títulos.
+proyectos:
+  - id: navante
+    obra: "Navante"
+    autor: "Build & Create Studio"
+    tipo: "Oficina corporativa · 96 m²"
+    ubicacion: "Guatemala"
+    anio: 2026
+    servicio: "Fotografía de obra terminada"
+    medio: foto
+    descripcion: >-
+      Oficina para una empresa de logística marítima y aérea: estaciones de trabajo
+      abiertas, salas privadas en vidrio y luminarias lineales curvas que ordenan el espacio.
+      El color marca cada función: turquesa, naranja y amarillo.
+    portada: estaciones.jpg
+    galeria: [acceso.jpg, area-abierta.jpg, cocineta.jpg]
+    plena: [lampara.jpg]     # imágenes horizontales a página completa
+
+  - id: fragmento
+    obra: "Fragmento"
+    autor: "Fragmento Arquitectura"
+    tipo: "Instalación — Interiorismo"
+    ubicacion: "Ciudad de Guatemala"
+    anio: 2026
+    servicio: "Video vertical para Reels"
+    duracion: "27 s"
+    medio: video            # video | foto  (cambia los pies de imagen)
+    descripcion: >-
+      Piezas de vidrio iridiscente suspendidas sobre muros curvos. El recorrido en video
+      sigue cómo la luz cambia el color de cada pieza según el ángulo y la hora.
+    portada: 5.jpg
+    galeria: [16.jpg, 19.jpg, 23.jpg, 1_5.jpg, 10_5.jpg, 13.jpg]
