@@ -53,6 +53,23 @@ proyectos:
     # Fotos de cámara (Sony a6700). Las de celular quedan en la carpeta sin usarse.
     plena: [mueble-amarillo.jpg, open-office.jpg, mueble-turquesa.jpg, lampara-camara.jpg]
 
+  - id: kishi-chiquimula
+    obra: "Kishi Books"
+    autor: "Build & Create Studio"
+    tipo: "Mobiliario comercial · Librería"
+    ubicacion: "Plaza Girasoles, Chiquimula"
+    anio: 2026
+    servicio: "Fotografía de obra terminada"
+    medio: foto
+    descripcion: >-
+      Kioscos de madera curvada para una librería. Dos brazos curvos forman un recorrido
+      interior: el cliente entra al kiosco en lugar de mirarlo desde fuera. La luz bajo
+      cada nivel dibuja las curvas.
+    portada: fachada.jpg
+    encuadre_portada: "27% 50%"
+    galeria: []
+    plena: [esquina-curva.jpg, recorrido.jpg]
+
   - id: fragmento
     obra: "Fragmento"
     autor: "Fragmento Arquitectura"
