@@ -7,6 +7,12 @@
 
 edicion: "Portafolio 2026"
 
+# Imagen de la portada del portafolio (si no se indica, usa la del primer proyecto)
+portada:
+  proyecto: navante
+  imagen: mueble-amarillo.jpg
+  encuadre: "52% 50%"
+
 estudio:
   frase: "Documentamos la arquitectura tal como fue pensada."
   texto: >-
@@ -41,9 +47,11 @@ proyectos:
       Oficina para una empresa de logística marítima y aérea: estaciones de trabajo
       abiertas, salas privadas en vidrio y luminarias lineales curvas que ordenan el espacio.
       El color marca cada función: turquesa, naranja y amarillo.
-    portada: estaciones.jpg
-    galeria: [acceso.jpg, area-abierta.jpg, cocineta.jpg]
-    plena: [lampara.jpg]     # imágenes horizontales a página completa
+    portada: open-office.jpg
+    encuadre_portada: "40% 50%"   # qué parte de una foto horizontal se ve en el panel vertical
+    galeria: []
+    # Fotos de cámara (Sony a6700). Las de celular quedan en la carpeta sin usarse.
+    plena: [mueble-amarillo.jpg, open-office.jpg, mueble-turquesa.jpg, lampara-camara.jpg]
 
   - id: fragmento
     obra: "Fragmento"

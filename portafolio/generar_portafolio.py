@@ -56,9 +56,12 @@ h2 { font-weight: 200; font-size: 34pt; line-height: 1.02; letter-spacing: -.02e
 
 def pagina_portada(d) -> str:
     p = d["proyectos"][0]
+    if d.get("portada"):  # imagen propia para la portada del portafolio
+        p = {**p, "id": d["portada"]["proyecto"], "portada": d["portada"]["imagen"],
+             "encuadre_portada": d["portada"].get("encuadre", "center")}
     return f"""
 <section class="page oscura">
-  <div class="img" style="position:absolute; right:0; top:0; bottom:0; width:118mm; background-image:url('proyectos/{p['id']}/{p['portada']}')"></div>
+  <div class="img" style="position:absolute; right:0; top:0; bottom:0; width:118mm; background-position:{p.get('encuadre_portada', 'center')}; background-image:url('proyectos/{p['id']}/{p['portada']}')"></div>
   <div style="position:absolute; left:18mm; top:16mm; bottom:16mm; width:150mm; display:flex; flex-direction:column; justify-content:space-between">
     <img src="../marca/logo/portico_logo_horizontal_hueso.svg" style="height:11mm; align-self:flex-start">
     <div>
@@ -109,7 +112,7 @@ def paginas_proyecto(p, n: int) -> str:
     ficha = "".join(f'<div class="f"><span class="mono">{e(a)}</span><span>{e(b)}</span></div>' for a, b in filas)
     a = f"""
 <section class="page">
-  <div class="img" style="position:absolute; left:0; top:0; bottom:0; width:118mm; background-image:url('{carpeta}/{p['portada']}')"></div>
+  <div class="img" style="position:absolute; left:0; top:0; bottom:0; width:118mm; background-position:{p.get('encuadre_portada', 'center')}; background-image:url('{carpeta}/{p['portada']}')"></div>
   <span class="mono" style="position:absolute; left:8mm; bottom:8mm; color:#fff">{pie(p['medio'])}</span>
   <div style="position:absolute; left:136mm; right:18mm; top:18mm; bottom:16mm; display:flex; flex-direction:column; justify-content:space-between">
     <div style="display:flex; justify-content:space-between"><span class="mono trav">Proyecto {n:02d}</span><span class="mono gris">Pórtico</span></div>
