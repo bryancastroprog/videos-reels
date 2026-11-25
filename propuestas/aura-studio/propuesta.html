@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Propuesta Pórtico · Aura Studio</title>
+<style>
+@font-face { font-family: "Archivo"; src: url("../../marca/fuentes/Archivo-Variable.ttf"); font-weight: 100 900; font-stretch: 62% 125%; }
+@font-face { font-family: "Plex Mono"; src: url("../../marca/fuentes/IBMPlexMono-Light.ttf"); font-weight: 300; }
+@font-face { font-family: "Plex Mono"; src: url("../../marca/fuentes/IBMPlexMono-Regular.ttf"); font-weight: 400; }
+
+:root {
+  --carbon: #1C1B19; --hueso: #F2EEE7; --travertino: #B49A7A; --gris: #6E6A64; --linea: #D9D3C9;
+}
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: transparent; }
+body { font-family: "Archivo", sans-serif; font-weight: 400; color: var(--carbon); font-size: 9.6pt; line-height: 1.5;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+.page { width: 210mm; height: 297mm; position: relative; overflow: hidden; padding: 20mm 18mm 18mm; page-break-after: always; background: var(--hueso); }
+.page:last-child { page-break-after: auto; }
+
+.mono { font-family: "Plex Mono", monospace; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; font-size: 7.2pt; }
+.mono.light { font-weight: 300; }
+.gris { color: var(--gris); }
+.trav { color: var(--travertino); }
+
+/* encabezado y pie de páginas interiores */
+.cabecera { position: absolute; top: 12mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; align-items: center; }
+.cabecera img { height: 6.5mm; }
+.pie { position: absolute; bottom: 10mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; border-top: .3mm solid var(--carbon); padding-top: 2.5mm; }
+
+/* portada */
+.portada { padding: 0; background: var(--carbon); color: var(--hueso); }
+.portada .logo { position: absolute; top: 14mm; left: 18mm; height: 12mm; }
+.portada .bloque { position: absolute; left: 18mm; right: 18mm; top: 96mm; }
+.portada h1 { font-weight: 300; font-size: 40pt; line-height: 1.02; letter-spacing: -.02em; margin: 5mm 0 6mm; }
+.portada .datos { position: absolute; left: 18mm; right: 18mm; bottom: 16mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm; border-top: .3mm solid #4a4743; padding-top: 4mm; }
+.portada .datos div span { display: block; }
+.portada .datos .valor { font-size: 10pt; margin-top: 1.2mm; color: var(--hueso); }
+
+/* interiores */
+.seccion { margin-top: 10mm; }
+.seccion:first-of-type { margin-top: 0; }
+.num { display: flex; gap: 4mm; align-items: baseline; margin-bottom: 3mm; }
+h2 { font-weight: 300; font-size: 24pt; line-height: 1.08; letter-spacing: -.015em; margin-bottom: 4mm; }
+.lead { font-size: 10.5pt; max-width: 150mm; color: var(--carbon); margin-bottom: 7mm; font-weight: 300; }
+
+.paquetes { display: grid; grid-template-columns: repeat(3, 1fr); border-top: .3mm solid var(--carbon); }
+.paquete { padding: 5mm 5mm 5mm 0; border-right: .2mm solid var(--linea); display: flex; flex-direction: column; }
+.paquete + .paquete { padding-left: 5mm; }
+.paquete:last-child { border-right: 0; padding-right: 0; }
+.paquete h3 { font-weight: 500; font-size: 13pt; margin: 2mm 0 1mm; }
+.paquete .sub { margin-bottom: 4mm; }
+.paquete ul { list-style: none; flex: 1; }
+.paquete li { padding: 1.6mm 0; border-bottom: .2mm solid var(--linea); font-size: 8.8pt; }
+.paquete li:last-child { border-bottom: 0; }
+.paquete li.destacado { font-weight: 500; }
+.precio { margin-top: 5mm; }
+.precio .monto { font-weight: 300; font-size: 22pt; letter-spacing: -.01em; line-height: 1; }
+.precio .monto small { font-size: 10pt; font-weight: 400; margin-right: 1mm; }
+.paquete.recomendado { background: var(--carbon); color: var(--hueso); padding: 5mm !important; margin-top: -0.3mm; }
+.paquete.recomendado li { border-color: #3d3a36; }
+.paquete.recomendado .gris { color: #A9A39A; }
+.etiqueta { display: inline-block; background: var(--travertino); color: var(--carbon); padding: .6mm 2mm; margin-bottom: 1mm; }
+
+.nota { margin-top: 5mm; font-size: 8.6pt; color: var(--gris); max-width: 160mm; }
+
+table { width: 100%; border-collapse: collapse; }
+td { padding: 1.7mm 0; border-bottom: .2mm solid var(--linea); vertical-align: top; }
+tr:first-child td { border-top: .3mm solid var(--carbon); }
+td.monto { text-align: right; font-family: "Plex Mono", monospace; font-size: 9pt; white-space: nowrap; }
+
+.dos { display: grid; grid-template-columns: 1fr 1fr; gap: 12mm; }
+.beneficios { background: var(--carbon); color: var(--hueso); padding: 7mm 8mm 5mm; }
+.beneficios h2 { color: var(--hueso); font-size: 20pt; }
+.beneficios .item { display: grid; grid-template-columns: 22mm 1fr; gap: 4mm; padding: 3.2mm 0; border-top: .2mm solid #3d3a36; }
+.beneficios .item .cifra { font-weight: 300; font-size: 18pt; line-height: 1; color: var(--travertino); }
+.beneficios .item p { font-size: 8.8pt; }
+.beneficios .item b { font-weight: 500; display: block; margin-bottom: .5mm; }
+
+.condiciones { display: grid; grid-template-columns: 1fr 1fr; column-gap: 10mm; }
+.cond { padding: 2.2mm 0; border-bottom: .2mm solid var(--linea); font-size: 8.5pt; }
+.cond .mono { display: block; margin-bottom: .8mm; color: var(--travertino); }
+
+.cierre { margin-top: 7mm; display: grid; grid-template-columns: 1fr auto; gap: 10mm; align-items: end; border-top: .3mm solid var(--carbon); padding-top: 6mm; }
+.cierre h2 { font-size: 20pt; margin-bottom: 2mm; }
+.contacto { text-align: right; line-height: 1.9; }
+</style>
+</head>
+<body>
+
+<!-- ============================== PORTADA -->
+<section class="page portada">
+  <img class="logo" src="../../marca/logo/portico_logo_horizontal_hueso.svg" alt="Pórtico">
+  <div class="bloque">
+    <span class="mono trav">Propuesta de servicios — 2027</span>
+    <h1>Fotografía y reels<br>de arquitectura y obra</h1>
+  </div>
+  <div class="datos">
+    <div><span class="mono light" style="color:#A9A39A">Preparado para</span><span class="valor">Aura Studio</span></div>
+    <div><span class="mono light" style="color:#A9A39A">Fecha</span><span class="valor">25 de noviembre de 2026</span></div>
+    <div><span class="mono light" style="color:#A9A39A">Vigencia</span><span class="valor">30 días</span></div>
+  </div>
+</section>
+
+<!-- ============================== FOTOGRAFÍA ARQUITECTÓNICA -->
+<section class="page">
+  <div class="cabecera"><img src="../../marca/logo/portico_logo_horizontal_carbon.svg" alt="Pórtico"><span class="mono gris">Aura Studio</span></div>
+
+  <div style="margin-top: 14mm">
+    <p class="lead">Pórtico documenta arquitectura, interiorismo y obra en foto y video. Esta propuesta presenta dos líneas de servicio para los proyectos de Aura Studio. Ambas combinan fotografía y video para Reels en partes iguales: obra terminada y documentación mensual de obra en construcción.</p>
+
+    <div class="seccion">
+      <div class="num"><span class="mono trav">01</span><span class="mono">Fotografía + Reels</span></div>
+      <h2>Obra terminada, por proyecto</h2>
+      <p class="lead" style="margin-bottom:6mm">Para portafolio, publicaciones, concursos y redes. En cada paquete, fotografía y reels se producen en la misma sesión. Incluye una ronda de ajustes, portadas y archivos en alta resolución.</p>
+
+      <div class="paquetes">
+        <div class="paquete">
+          <span class="mono gris">Paquete A</span>
+          <h3>Esencial</h3>
+          <span class="mono light gris sub">Entrega en 5 días hábiles</span>
+          <ul>
+            <li>Sesión de hasta 2 horas</li>
+            <li>15 fotografías editadas</li>
+            <li>1 reel vertical de 30 s</li>
+            <li>Portada para redes</li>
+          </ul>
+          <div class="precio"><span class="monto"><small>Q</small>3,500</span></div>
+        </div>
+        <div class="paquete recomendado">
+          <span class="mono etiqueta">Recomendado</span>
+          <h3>Portafolio</h3>
+          <span class="mono light gris sub">Entrega en 7 días hábiles</span>
+          <ul>
+            <li>Sesión de hasta 4 horas</li>
+            <li>25 fotografías editadas</li>
+            <li class="destacado">2 reels verticales de 30 s</li>
+            <li>Tomas con dron si el sitio lo permite</li>
+          </ul>
+          <div class="precio"><span class="monto"><small>Q</small>5,500</span></div>
+        </div>
+        <div class="paquete">
+          <span class="mono gris">Paquete C</span>
+          <h3>Editorial</h3>
+          <span class="mono light gris sub">Entrega en 10 días hábiles</span>
+          <ul>
+            <li>Jornada completa: luz de día y atardecer</li>
+            <li>40 fotografías editadas</li>
+            <li class="destacado">3 reels verticales + versiones horizontales</li>
+            <li>Dron</li>
+            <li>Selección para revistas y concursos</li>
+          </ul>
+          <div class="precio"><span class="monto"><small>Q</small>8,500</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="seccion">
+      <div class="num"><span class="mono trav">02</span><span class="mono">Servicios adicionales</span></div>
+      <table>
+        <tr><td>Reel vertical adicional (30 s)</td><td class="monto">Q 1,500</td></tr>
+        <tr><td>Sesión de atardecer / luz nocturna</td><td class="monto">Q 1,200</td></tr>
+        <tr><td>Tomas con dron (por visita)</td><td class="monto">Q 800</td></tr>
+        <tr><td>Versión horizontal de un video</td><td class="monto">Q 400</td></tr>
+        <tr><td>Amueblado virtual (por imagen)</td><td class="monto">Q 250</td></tr>
+        <tr><td>Ronda adicional de ajustes</td><td class="monto">Q 250</td></tr>
+        <tr><td>Fotografía editada adicional</td><td class="monto">Q 100 c/u</td></tr>
+      </table>
+  </div>
+
+  <div class="pie"><span class="mono light gris">Pórtico — Fotografía y video arquitectónico</span><span class="mono light gris">02</span></div>
+</section>
+
+<!-- ============================== DOCUMENTACIÓN DE OBRA -->
+<section class="page">
+  <div class="cabecera"><img src="../../marca/logo/portico_logo_horizontal_carbon.svg" alt="Pórtico"><span class="mono gris">Aura Studio</span></div>
+
+  <div style="margin-top: 14mm">
+    <div class="seccion">
+      <div class="num"><span class="mono trav">03</span><span class="mono">Documentación de obra</span></div>
+      <h2>Registro mensual del avance, en foto y reel</h2>
+      <p class="lead" style="margin-bottom:6mm">Para clientes, inversionistas, bitácora técnica y preventa. Suscripción mensual con un mínimo de 3 meses.</p>
+
+      <div class="paquetes">
+        <div class="paquete">
+          <span class="mono gris">1 visita al mes</span>
+          <h3>Obra Base</h3>
+          <span class="mono light gris sub">Mensual</span>
+          <ul>
+            <li>20 fotografías desde puntos fijos</li>
+            <li>1 reel de avance al mes</li>
+            <li>Reporte visual en PDF</li>
+          </ul>
+          <div class="precio"><span class="monto"><small>Q</small>3,000</span> <span class="mono light gris">/ mes</span></div>
+        </div>
+        <div class="paquete recomendado">
+          <span class="mono etiqueta">Recomendado</span>
+          <h3>Obra Plus</h3>
+          <span class="mono light gris sub">2 visitas al mes</span>
+          <ul>
+            <li>30 fotografías</li>
+            <li class="destacado">2 reels de avance al mes</li>
+            <li>Tomas con dron</li>
+            <li>Reporte visual en PDF</li>
+          </ul>
+          <div class="precio"><span class="monto"><small>Q</small>5,000</span> <span class="mono light gris">/ mes</span></div>
+        </div>
+        <div class="paquete">
+          <span class="mono gris">4 visitas al mes</span>
+          <h3>Obra Completa</h3>
+          <span class="mono light gris sub">Seguimiento semanal</span>
+          <ul>
+            <li>40 fotografías · dron</li>
+            <li>4 reels al mes (1 por semana)</li>
+            <li>Comparativos antes / después · reporte en PDF</li>
+            <li class="destacado">Sesión Portafolio incluida al terminar la obra</li>
+          </ul>
+          <div class="precio"><span class="monto"><small>Q</small>8,500</span> <span class="mono light gris">/ mes</span></div>
+        </div>
+      </div>
+      <p class="nota">Fotos y tomas de video se registran siempre desde los mismos puntos. Al cierre de la obra se entrega un recorrido completo de su construcción, en imágenes y en video.</p>
+    </div>
+
+    </div>
+  </div>
+
+  <div class="pie"><span class="mono light gris">Pórtico — Fotografía y video arquitectónico</span><span class="mono light gris">03</span></div>
+</section>
+
+<!-- ============================== BENEFICIOS Y CONDICIONES -->
+<section class="page">
+  <div class="cabecera"><img src="../../marca/logo/portico_logo_horizontal_carbon.svg" alt="Pórtico"><span class="mono gris">Aura Studio</span></div>
+
+  <div style="margin-top: 14mm">
+    <div class="beneficios">
+      <div class="num"><span class="mono trav">04</span><span class="mono">Beneficios</span></div>
+      <h2>Mientras más trabajamos juntos, mejor precio</h2>
+      <div class="item"><span class="cifra">15 %</span><p><b>Obra + proyecto terminado</b>Si contrata documentación de obra, la sesión de obra terminada tiene 15 % de descuento.</p></div>
+      <div class="item"><span class="cifra">10 %</span><p><b>Documentación de obra a 6 meses</b>Descuento al contratar 6 meses o más.</p></div>
+      <div class="item"><span class="cifra">1:1</span><p><b>Alianza de referidos</b>Por cada cliente que nos recomiende y contrate, una sesión Esencial sin costo.</p></div>
+      <div class="item"><span class="cifra">@</span><p><b>Crédito y difusión</b>Cada publicación de Pórtico sobre sus proyectos menciona y etiqueta a Aura Studio y a los autores de cada obra.</p></div>
+    </div>
+
+    <div class="seccion">
+      <div class="num"><span class="mono trav">05</span><span class="mono">Condiciones</span></div>
+      <div class="condiciones">
+        <div class="cond"><span class="mono">Pagos</span>Proyectos: 50 % de anticipo para reservar fecha y saldo contra entrega. Documentación de obra: pago mensual por adelantado.</div>
+        <div class="cond"><span class="mono">Licencia de uso</span>Uso sin límite para promover sus proyectos, con el crédito “Fotografía / Video: Pórtico”. Pórtico conserva los derechos de autor y puede publicar en su portafolio.</div>
+        <div class="cond"><span class="mono">Impuestos</span>Los precios no incluyen IVA.</div>
+        <div class="cond"><span class="mono">Créditos</span>Antes de publicar, Aura Studio confirma por escrito el nombre de cada obra, sus autores y colaboradores.</div>
+        <div class="cond"><span class="mono">Cobertura</span>Ciudad de Guatemala. Fuera del área metropolitana se cotizan viáticos.</div>
+        <div class="cond"><span class="mono">Terceros</span>Desarrolladores, proveedores o medios que quieran usar el material solicitan la licencia a Pórtico.</div>
+        <div class="cond"><span class="mono">Clima</span>Si las condiciones no permiten la sesión, se reprograma sin costo.</div>
+        <div class="cond"><span class="mono">Vigencia</span>30 días a partir del 25 de noviembre de 2026.</div>
+      </div>
+    </div>
+
+    <div class="cierre">
+      <div>
+        <div class="num"><span class="mono trav">06</span><span class="mono">Siguiente paso</span></div>
+        <h2>Agendemos 20 minutos</h2>
+        <p style="max-width:95mm">Cuéntenos qué proyectos tienen en obra o por terminar en 2027 y armamos juntos el calendario de sesiones.</p>
+      </div>
+      <div class="contacto mono light">
+        <span id="c-nombre" style="color:var(--carbon)">Bryan Castro</span><br>
+        <span id="c-tel">WhatsApp +502 5413 1753</span><br>
+        <span id="c-correo" style="text-transform:none">info@bcarqstudio.com</span><br>
+        <span id="c-ig" style="text-transform:none">@portico.fa</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pie"><span class="mono light gris">Pórtico — Fotografía y video arquitectónico</span><span class="mono light gris">04</span></div>
+</section>
+
+</body>
+</html>
