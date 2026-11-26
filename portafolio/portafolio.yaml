@@ -108,7 +108,7 @@ proyectos:
       plafones de luz curvos. El piso se abre en jardineras iluminadas.
     portada: mostrador.jpg
     galeria: []
-    plena: [hilos.jpg, jardinera.jpg]
+    plena: [anillo-luz.jpg, hilos.jpg, hilos-diagonal.jpg, jardinera.jpg]
 
   - id: dh-meraki
     grupo: design-house
@@ -137,7 +137,26 @@ proyectos:
     anio: 2026
     servicio: "Fotografía"
     medio: foto
-    formato: simple
     descripcion: >-
       Un recorrido entre telas rojas suspendidas, musgo y esferas de luz que se abre hacia un patio blanco.
-    portada: cortinas.jpg
+    portada: esfera.jpg
+    galeria: []
+    plena: [cortinas.jpg]
+
+  - id: dh-pendiente-1
+    grupo: design-house
+    titulo: "Estudio por confirmar"
+    indice: "Design House Guatemala"
+    obra: "Pendiente"
+    autor: "Pendiente"
+    tipo: "Interiorismo — Exposición"
+    ubicacion: "Design House Guatemala"
+    anio: 2026
+    servicio: "Fotografía"
+    medio: foto
+    descripcion: >-
+      Ventanal de herrería negra hacia un interior naranja con nichos de luz en media luna;
+      al frente, jardín con una esfera de concreto.
+    portada: fachada-lunas.jpg
+    galeria: []
+    plena: []
