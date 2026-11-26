@@ -33,6 +33,12 @@ contacto:
   correo: "info@bcarqstudio.com"
   instagram: "portico.fa"
 
+# Secciones del portafolio (los proyectos con "grupo" van precedidos de su portadilla)
+grupos:
+  design-house:
+    nombre: "Design House Guatemala"
+    texto: "Espacios de interiorismo de la exposición Design House Guatemala, ordenados por estudio."
+
 # Créditos: siempre como los confirma el cliente. Nunca inventar títulos.
 proyectos:
   - id: navante
@@ -84,3 +90,54 @@ proyectos:
       sigue cómo la luz cambia el color de cada pieza según el ángulo y la hora.
     portada: 5.jpg
     galeria: [16.jpg, 19.jpg, 23.jpg, 1_5.jpg, 10_5.jpg, 13.jpg]
+
+  # ---------------- Design House Guatemala (por estudio, en orden alfabético)
+  - id: dh-aura
+    grupo: design-house
+    titulo: "Aura Studio"
+    indice: "Design House Guatemala"
+    obra: "Pendiente"          # nombre del espacio por confirmar
+    autor: "Aura Studio"
+    tipo: "Interiorismo — Exposición"
+    ubicacion: "Design House Guatemala"
+    anio: 2026
+    servicio: "Fotografía"
+    medio: foto
+    descripcion: >-
+      Hilos tensados en azul y oro envuelven un mostrador escalonado azul bajo
+      plafones de luz curvos. El piso se abre en jardineras iluminadas.
+    portada: mostrador.jpg
+    galeria: []
+    plena: [hilos.jpg, jardinera.jpg]
+
+  - id: dh-meraki
+    grupo: design-house
+    titulo: "Meraki"
+    indice: "Design House Guatemala"
+    obra: "Pendiente"
+    autor: "Meraki"
+    tipo: "Interiorismo — Exposición"
+    ubicacion: "Design House Guatemala"
+    anio: 2026
+    servicio: "Fotografía"
+    medio: foto
+    formato: simple
+    descripcion: >-
+      Sala de madera y cerámica verde con repisas iluminadas y sofá modular en verde menta.
+    portada: sala.jpg
+
+  - id: dh-tzol
+    grupo: design-house
+    titulo: "Tzol Arquitectura"
+    indice: "Design House Guatemala"
+    obra: "Pendiente"
+    autor: "Tzol Arquitectura"
+    tipo: "Interiorismo — Exposición"
+    ubicacion: "Design House Guatemala"
+    anio: 2026
+    servicio: "Fotografía"
+    medio: foto
+    formato: simple
+    descripcion: >-
+      Un recorrido entre telas rojas suspendidas, musgo y esferas de luz que se abre hacia un patio blanco.
+    portada: cortinas.jpg

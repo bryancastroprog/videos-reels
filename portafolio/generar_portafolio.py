@@ -83,8 +83,8 @@ def pagina_estudio(d) -> str:
         for i, s in enumerate(est["servicios"], 1))
     indice = "".join(
         f'<div style="display:flex; justify-content:space-between; padding:2.2mm 0; border-bottom:.2mm solid var(--linea)">'
-        f'<span><span class="mono trav" style="margin-right:4mm">{i:02d}</span>{e(p["obra"])}</span>'
-        f'<span class="mono gris">{e(p["autor"])} — {p["anio"]}</span></div>'
+        f'<span><span class="mono trav" style="margin-right:4mm">{i:02d}</span>{e(p.get("titulo", p["obra"]))}</span>'
+        f'<span class="mono gris">{e(p.get("indice", p["autor"]))} — {p["anio"]}</span></div>'
         for i, p in enumerate(d["proyectos"], 1))
     return f"""
 <section class="page" style="padding:26mm 18mm 20mm">
@@ -104,7 +104,49 @@ def pagina_estudio(d) -> str:
 </section>"""
 
 
+def pagina_grupo(nombre: str, texto: str) -> str:
+    """Portadilla de una sección del portafolio (por ejemplo, una exposición)."""
+    return f"""
+<section class="page oscura" style="padding:20mm 18mm">
+  <div style="display:flex; flex-direction:column; justify-content:space-between; height:100%">
+    <span class="mono trav">Serie</span>
+    <div>
+      <h1>{e(nombre)}</h1>
+      <p class="lead" style="max-width:150mm; margin-top:7mm; color:var(--gris2)">{e(texto)}</p>
+    </div>
+    <img src="../marca/logo/portico_isotipo_hueso.svg" style="height:12mm; align-self:flex-start">
+  </div>
+</section>"""
+
+
+def ficha_html(p) -> str:
+    servicio = p["servicio"] + (f" · {p['duracion']}" if p.get("duracion") else "")
+    filas = [("Obra", p["obra"]), ("Autor", p["autor"]), ("Tipo", p["tipo"]),
+             ("Ubicación", p["ubicacion"]), ("Año", str(p["anio"])), ("Servicio", servicio),
+             ("Imagen", f"{'Video' if p['medio'] == 'video' else 'Fotografía'}: Pórtico")]
+    return "".join(f'<div class="f"><span class="mono">{e(a)}</span><span>{e(b)}</span></div>' for a, b in filas)
+
+
+def pagina_simple(p, n: int) -> str:
+    """Un proyecto de una sola foto: imagen grande y ficha en la misma página."""
+    carpeta = f"proyectos/{p['id']}"
+    return f"""
+<section class="page">
+  <div class="img" style="position:absolute; left:0; top:0; bottom:0; width:190mm; background-position:{p.get('encuadre_portada', 'center')}; background-image:url('{carpeta}/{p['portada']}')"></div>
+  <div style="position:absolute; left:202mm; right:14mm; top:16mm; bottom:14mm; display:flex; flex-direction:column; justify-content:space-between">
+    <span class="mono trav">Proyecto {n:02d}</span>
+    <div>
+      <h2 style="font-size:28pt">{e(p.get('titulo', p['obra']))}</h2>
+      <p style="font-size:9pt; margin:3mm 0 5mm">{e(p.get('descripcion', ''))}</p>
+      <div class="ficha" style="border-top:.3mm solid var(--carbon); font-size:8pt">{ficha_html(p)}</div>
+    </div>
+  </div>
+</section>"""
+
+
 def paginas_proyecto(p, n: int) -> str:
+    if p.get("formato") == "simple":
+        return pagina_simple(p, n)
     carpeta = f"proyectos/{p['id']}"
     servicio = p["servicio"] + (f" · {p['duracion']}" if p.get("duracion") else "")
     filas = [("Obra", p["obra"]), ("Autor", p["autor"]), ("Tipo", p["tipo"]),
@@ -118,8 +160,8 @@ def paginas_proyecto(p, n: int) -> str:
   <div style="position:absolute; left:136mm; right:18mm; top:18mm; bottom:16mm; display:flex; flex-direction:column; justify-content:space-between">
     <div style="display:flex; justify-content:space-between"><span class="mono trav">Proyecto {n:02d}</span><span class="mono gris">Pórtico</span></div>
     <div>
-      <h1 style="font-size:58pt">{e(p['obra'])}</h1>
-      <div style="font-size:16pt; font-weight:300; margin:3mm 0 7mm">{e(p['autor'])}</div>
+      <h1 style="font-size:58pt">{e(p.get('titulo', p['obra']))}</h1>
+      <div style="font-size:16pt; font-weight:300; margin:3mm 0 7mm">{e(p.get('indice', p['autor']) if p.get('titulo') == p['autor'] else p['autor'])}</div>
       <p style="font-size:10.5pt; max-width:115mm; margin-bottom:7mm">{e(p['descripcion'])}</p>
       <div class="ficha" style="border-top:.3mm solid var(--carbon)">{ficha}</div>
     </div>
@@ -140,14 +182,14 @@ def paginas_proyecto(p, n: int) -> str:
         paginas.append(f"""
 <section class="page" style="padding:18mm 18mm 20mm">
   <div style="display:grid; grid-template-columns: repeat({len(grupo)}, 1fr); gap:5mm; height:160mm">{celdas}</div>
-  <div class="pie"><span class="mono gris">{e(p['obra'])} — {e(p['autor'])} — {'Fotogramas de video' if p['medio'] == 'video' else 'Fotografía'}: Pórtico</span>
+  <div class="pie"><span class="mono gris">{e(p.get('titulo', p['obra']))} — {e(p['autor'])} — {'Fotogramas de video' if p['medio'] == 'video' else 'Fotografía'}: Pórtico</span>
   <span class="mono gris">{n:02d}.{i // 3 + 1}</span></div>
 </section>""")
     for j, img in enumerate(p.get("plena", []), 1):
         paginas.append(f"""
 <section class="page">
   <div class="img" style="position:absolute; left:0; right:0; top:0; bottom:20mm; background-image:url('{carpeta}/{img}')"></div>
-  <div class="pie" style="bottom:7.5mm"><span class="mono gris">{e(p['obra'])} — {e(p['autor'])} — {'Fotograma de video' if p['medio'] == 'video' else 'Fotografía'}: Pórtico</span>
+  <div class="pie" style="bottom:7.5mm"><span class="mono gris">{e(p.get('titulo', p['obra']))} — {e(p['autor'])} — {'Fotograma de video' if p['medio'] == 'video' else 'Fotografía'}: Pórtico</span>
   <span class="mono gris">{n:02d}.{len(gal) // 3 + j + (1 if len(gal) % 3 else 0)}</span></div>
 </section>""")
     return "".join(paginas)
@@ -180,7 +222,12 @@ def pagina_contacto(d) -> str:
 def main():
     d = yaml.safe_load((AQUI / "portafolio.yaml").read_text(encoding="utf-8"))
     cuerpo = pagina_portada(d) + pagina_estudio(d)
+    grupo_actual = None
     for n, p in enumerate(d["proyectos"], 1):
+        if p.get("grupo") and p["grupo"] != grupo_actual:
+            g = d.get("grupos", {}).get(p["grupo"], {})
+            cuerpo += pagina_grupo(g.get("nombre", p["grupo"]), g.get("texto", ""))
+        grupo_actual = p.get("grupo")
         cuerpo += paginas_proyecto(p, n)
     cuerpo += pagina_contacto(d)
     doc = (f'<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Pórtico · {e(d["edicion"])}</title>'
